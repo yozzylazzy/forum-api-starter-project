@@ -28,7 +28,7 @@ describe('a CreatedThread entities', () => {
     };
     // Action
     const {
-      id, title, body, owner,
+      id, title, owner,
     } = new CreatedThread(payload);
 
     // Assert
