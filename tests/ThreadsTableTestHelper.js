@@ -13,7 +13,7 @@ const ThreadsTableTestHelper = {
   },
   async findThreadsById(id) {
     const query = {
-      text: 'SELECT * FROM threads WHERE id =$1',
+      text: 'SELECT * FROM threads WHERE id = $1',
       values: [id],
     };
     const result = await pool.query(query);

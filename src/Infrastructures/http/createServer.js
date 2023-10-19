@@ -14,7 +14,7 @@ const createServer = async (container) => {
 
   await server.register([
     {
-      plugin: Jwt
+      plugin: Jwt,
     },
   ]);
 
@@ -30,6 +30,7 @@ const createServer = async (container) => {
       isValid: true,
       credentials: {
         id: artifacts.decoded.payload.id,
+        username: artifacts.decoded.payload.username,
       },
     })
   })
