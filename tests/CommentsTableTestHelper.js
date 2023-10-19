@@ -3,7 +3,7 @@ const pool = require('../src/Infrastructures/database/postgres/pool');
 
 const CommentsTableTestHelper = {
   async addComment({
-    id = 'comment-123', content = 'Comment Section', owner = 'user-123', threadId = 'thread-123',
+    id = 'comment-123', content = 'Comment Thread', owner = 'user-123', threadId = 'thread-123',
     isDelete = false, date = 'comment date'
   }) {
     const query = {
@@ -14,7 +14,7 @@ const CommentsTableTestHelper = {
   },
   async findCommentById(id) {
     const query = {
-      text: 'SELECTG * FROM comments WHERE id = $1',
+      text: 'SELECT * FROM comments WHERE id = $1',
       values: [id],
     }
     const result = await pool.query(query);

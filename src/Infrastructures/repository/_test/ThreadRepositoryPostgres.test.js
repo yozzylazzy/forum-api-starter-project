@@ -3,7 +3,6 @@ const UsersTableTestHelper = require('../../../../tests/UsersTableTestHelper');
 const CreateThread = require('../../../Domains/threads/entities/CreateThread');
 const ThreadRepositoryPostgres = require('../ThreadRepositoryPostgres');
 const pool = require('../../database/postgres/pool');
-const NotFoundError = require('../../../Commons/exceptions/NotFoundError');
 const CreatedThread = require('../../../Domains/threads/entities/CreatedThread');
 
 describe('ThreadRepositoryPostgres', () => {
@@ -16,10 +15,10 @@ describe('ThreadRepositoryPostgres', () => {
     await pool.end();
   });
 
-  describe('addThread function', () => {
+  describe('createThread function', () => {
     it('should persist create thread and return created thread correctly', async () => {
       // Arrange
-      await UsersTableTestHelper.addUser({ id: 'user-123' }); // add user with id user-123
+      await UsersTableTestHelper.addUser({ id: 'user-123' });
       const createThread = new CreateThread({
         title: 'Thread Title',
         body: 'Thread body',
