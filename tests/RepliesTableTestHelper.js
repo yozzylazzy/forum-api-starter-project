@@ -21,7 +21,7 @@ const RepliesTableTestHelper = {
     return result.rows;
   },
   async cleanTable() {
-    await pool.query('TRUNCATE TABLE replies');
+    await pool.query('DELETE FROM replies WHERE 1=1');
   }
 }
 

@@ -1,53 +1,43 @@
 const ThreadsTableTestHelper = require('../../../../tests/ThreadsTableTestHelper');
-const InvariantError = require('../../../Commons/exceptions/InvariantError');
-const NotFoundError = require('../../../Commons/exceptions/NotFoundError');
+const UsersTableTestHelper = require('../../../../tests/UsersTableTestHelper');
 const CreateThread = require('../../../Domains/threads/entities/CreateThread');
-const CreatedThread = require('../../../Domains/threads/entities/CreatedThread');
-const pool = require('../../database/postgres/pool');
 const ThreadRepositoryPostgres = require('../ThreadRepositoryPostgres');
+const pool = require('../../database/postgres/pool');
+const NotFoundError = require('../../../Commons/exceptions/NotFoundError');
+const CreatedThread = require('../../../Domains/threads/entities/CreatedThread');
 
 describe('ThreadRepositoryPostgres', () => {
   afterEach(async () => {
     await ThreadsTableTestHelper.cleanTable();
+    await UsersTableTestHelper.cleanTable();
   });
+
   afterAll(async () => {
     await pool.end();
   });
+
   describe('addThread function', () => {
-    it('should persist create thread', async () => {
+    it('should persist create thread and return created thread correctly', async () => {
       // Arrange
+      await UsersTableTestHelper.addUser({ id: 'user-123' }); // add user with id user-123
       const createThread = new CreateThread({
-        title: 'Dicoding Thread',
-        body: 'Dicoding is ...',
+        title: 'Thread Title',
+        body: 'Thread body',
         owner: 'user-123',
-      });
-      const fakeIdGenerator = () => '123';
-      const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, fakeIdGenerator);
-      // Action
-      await threadRepositoryPostgres.addThread(createThread);
-      // Assert
-      const threads = await ThreadsTableTestHelper.findThreadsById('thread-123');
-      expect(threads).toHaveLength(1);
-    });
-    it('should return created thread correctly', async () => {
-      // Arrange
-      const createThread = new CreateThread({
-        title: 'Dicoding Title',
-        body: 'Dicoding is ...',
-        owmer: 'user-123',
       });
       const fakeIdGenerator = () => '123'; // stub!
       const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, fakeIdGenerator);
 
       // Action
-      const createdThread = await threadRepositoryPostgres.addUser(createThread);
+      const createdThread = await threadRepositoryPostgres.createThread(createThread);
 
       // Assert
+      const threads = await ThreadsTableTestHelper.findThreadsById(createdThread.id);
+      expect(threads).toHaveLength(1);
       expect(createdThread).toStrictEqual(new CreatedThread({
         id: 'thread-123',
-        title: 'Dicodign Title',
-        body: 'Dicoding is ...',
-        owner: 'user-123',
+        title: createThread.title,
+        owner: createThread.owner,
       }));
     });
   });
