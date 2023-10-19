@@ -97,8 +97,8 @@ describe('/threads endpoint', () => {
     it('should response 400 when request payload not meet data type specification', async () => {
       // Arrange
       const requestPayload = {
-        title: 'hello!',
-        body: ['this is a new thread.'],
+        title: 'Dicoding Thread',
+        body: { message: 'Dicoding is good' },
       };
       const server = await createServer(container);
       await server.inject({
@@ -137,8 +137,8 @@ describe('/threads endpoint', () => {
     it('should response 401 if headers not contain access token', async () => {
       // Arrange
       const requestPayload = {
-        title: 'hello!',
-        body: 'this is a new thread.',
+        title: 'Dicoding Thread',
+        body: 'Dicoding is good',
       };
       const server = await createServer(container);
 
