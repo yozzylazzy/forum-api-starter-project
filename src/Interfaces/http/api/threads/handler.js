@@ -1,20 +1,20 @@
-const AddUserUseCase = require('../../../../Applications/use_case/AddUserUseCase');
+const AddThreadUseCase = require('../../../../Applications/use_case/AddThreadUseCase');
 
-class UsersHandler {
+class ThreadsHandler {
   constructor(container) {
     this._container = container;
 
-    this.postUserHandler = this.postUserHandler.bind(this);
+    this.postThreadHandler = this.postThreadHandler.bind(this);
   }
 
-  async postUserHandler(request, h) {
-    const addUserUseCase = this._container.getInstance(AddUserUseCase.name);
-    const addedUser = await addUserUseCase.execute(request.payload);
+  async postThreadHandler(request, h) {
+    const addThreadUseCase = this._container.getInstance(AddThreadUseCase.name);
+    const addedThread = await addThreadUseCase.execute(request.payload);
 
     const response = h.response({
       status: 'success',
       data: {
-        addedUser,
+        addedThread,
       },
     });
     response.code(201);
@@ -22,4 +22,4 @@ class UsersHandler {
   }
 }
 
-module.exports = UsersHandler;
+module.exports = ThreadsHandler;
