@@ -22,7 +22,7 @@ describe('createReply entities', () => {
   it('should create CreateReply entities correctly', () => {
     // Arrange
     const payload = {
-      content: 'Reply COmment',
+      content: 'Comment Reply',
       owner: 'user-123',
       commentId: 'comment-123',
     };

@@ -1,4 +1,4 @@
-class CreateReply {
+class CreatedReply {
   constructor(payload) {
     this._verifyPayload(payload);
     const { id, content, owner } = payload;
@@ -17,4 +17,4 @@ class CreateReply {
   }
 }
 
-module.exports = CreateReply;
+module.exports = CreatedReply;
