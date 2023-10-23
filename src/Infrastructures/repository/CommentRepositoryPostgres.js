@@ -74,9 +74,9 @@ class CommentRepositoryPostgres extends CommentRepository {
     const query = {
       text: `SELECT c.*, u.username
       FROM comments c
-      INNER JOIN threads t ON c.thread_id = t.id
       INNER JOIN users u ON c.owner = u.id
       WHERE c.thread_id = $1
+      ORDER BY c.date ASC
       `,
       values: [threadId],
     };
