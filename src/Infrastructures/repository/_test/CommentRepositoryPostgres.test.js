@@ -23,7 +23,7 @@ describe('CommentRepositoryPostgres', () => {
     it('should persist create comment and return created comment correctly', async () => {
       // Arrange
       await UsersTableTestHelper.addUser({ id: 'user-123' });
-      await ThreadsTableTestHelper.addThreads({ id: 'thread-123' });
+      await ThreadsTableTestHelper.addThread({ id: 'thread-123' });
       const createComment = new CreateComment({
         content: 'Comment Thread',
         owner: 'user-123',
@@ -41,6 +41,30 @@ describe('CommentRepositoryPostgres', () => {
         content: createComment.content,
         owner: createComment.owner,
       }));
+    });
+  });
+
+  describe('deleteComment function', () => {
+    it('should persist delete comment and delete comment succesfully', async () => {
+      // Arrange
+      await UsersTableTestHelper.addUser({ id: 'user-123' });
+      await ThreadsTableTestHelper.addThread({ id: 'thread-123' });
+      const requestPayload = {
+        id: 'comment-123',
+        threadId: 'thread-123',
+        owner: 'user-123',
+      };
+      const commentRepository = new CommentRepositoryPostgres(pool);
+      await CommentsTableTestHelper.addComment({
+        id: requestPayload.id,
+        threadId: requestPayload.threadId,
+        owner: requestPayload.owner,
+      });
+      // Action
+      await commentRepository.deleteCommentById(requestPayload.id);
+      // Assert
+      const comments = await CommentsTableTestHelper.findCommentById(requestPayload.id);
+      expect(comments).toHaveLength(0);
     });
   });
 });
