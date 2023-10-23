@@ -44,6 +44,14 @@ describe('CommentRepositoryPostgres', () => {
     });
   });
 
+  describe('verifyCommentExist', () => {
+
+  });
+
+  describe('verifyCommentOwner', () => {
+
+  });
+
   describe('deleteComment function', () => {
     it('should persist delete comment and delete comment succesfully', async () => {
       // Arrange
@@ -65,6 +73,44 @@ describe('CommentRepositoryPostgres', () => {
       // Assert
       const comments = await CommentsTableTestHelper.findCommentById(requestPayload.id);
       expect(comments).toHaveLength(0);
+    });
+  });
+
+  describe('getCommentsByThreadId function', () => {
+    it('should persist get comments by thread id and return all comments found by thread id', async () => {
+      // Arrange
+      const threadId = 'thread-123';
+      await UsersTableTestHelper.addUser({ id: 'user-123' });
+      await ThreadsTableTestHelper.addThread({ id: threadId });
+      await CommentsTableTestHelper.addComment({
+        id: 'comment-123',
+        threadId,
+        date: '2023-10-23T16:37:32Z',
+      });
+      await CommentsTableTestHelper.addComment({
+        id: 'comment-456',
+        threadId,
+        date: '2023-10-23T17:37:32Z',
+      });
+      const fakeIdGenerator = () => '123';
+      const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, fakeIdGenerator);
+
+      // Action
+      const comments = await commentRepositoryPostgres.getCommentsByThreadId(threadId);
+
+      // Assert
+      expect(comments).toBeDefined();
+      expect(comments).toHaveLength(2);
+      expect(comments[0].id).toEqual('comment-123');
+      expect(comments[0].date).toEqual('2023-10-23T16:37:32Z');
+      expect(comments[0].username).toEqual('dicoding');
+      expect(comments[0].content).toEqual('Comment Thread');
+      expect(comments[0].is_delete).toEqual(false);
+      expect(comments[1].id).toEqual('comment-456');
+      expect(comments[1].date).toEqual('2023-10-23T17:37:32Z');
+      expect(comments[1].username).toEqual('dicoding');
+      expect(comments[1].content).toEqual('Comment Thread');
+      expect(comments[1].is_delete).toEqual(false);
     });
   });
 });

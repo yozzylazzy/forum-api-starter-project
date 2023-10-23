@@ -154,23 +154,8 @@ describe('/threads endpoint', () => {
       expect(response.statusCode).toEqual(401);
       expect(responseJson.message).toEqual('Missing authentication');
     });
+  });
 
-    // it('should response 404 when requested thread not found', async () => {
-    //   // Arrange
-    //   const threadId = 'thread-123';
-    //   const server = await createServer(container);
-
-    //   // Action
-    //   const response = await server.inject({
-    //     method: 'GET',
-    //     url: `/threads/${threadId}`,
-    //   });
-
-    //   // Assert
-    //   const responseJson = JSON.parse(response.payload);
-    //   expect(response.statusCode).toEqual(404);
-    //   expect(responseJson.status).toEqual('fail');
-    //   expect(responseJson.message).toEqual('thread tidak ditemukan');
-    // });
+  describe('when GET/threads', () => {
   });
 })
