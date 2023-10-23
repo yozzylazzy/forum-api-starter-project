@@ -23,7 +23,7 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
         content: 'Thread Comment',
       };
       const server = await createServer(container);
-      await server.inject({
+      const userResponse = await server.inject({
         method: 'POST',
         url: '/users',
         payload: {
@@ -40,17 +40,13 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
           password: 'secret',
         },
       });
+      const threadId = 'thread-123';
       const { data: auth } = JSON.parse(authReponse.payload);
-      const thread = await server.inject({
-        method: 'POST',
-        url: '/threads',
-        payload: {
-          title: 'Dicoding Thread',
-          body: 'Dicoding is good',
-        },
-        headers: { Authorization: `Bearer ${auth.accessToken}` }
+      const { data: user } = JSON.parse(userResponse.payload);
+      await ThreadsTableTestHelper.addThreads({
+        id: threadId,
+        owner: user.addedUser.id,
       })
-      const { id: threadId } = JSON.parse(thread.payload);
       // Action
       const response = await server.inject({
         method: 'POST',
@@ -75,7 +71,7 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
       // Arrange
       const requestPayload = {};
       const server = await createServer(container);
-      await server.inject({
+      const userResponse = await server.inject({
         method: 'POST',
         url: '/users',
         payload: {
@@ -92,17 +88,13 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
           password: 'secret',
         },
       });
+      const threadId = 'thread-123';
       const { data: auth } = JSON.parse(authReponse.payload);
-      const thread = await server.inject({
-        method: 'POST',
-        url: '/threads',
-        payload: {
-          title: 'Dicoding Thread',
-          body: 'Dicoding is good',
-        },
-        headers: { authorization: `Bearer ${auth.accessToken}` }
+      const { data: user } = JSON.parse(userResponse.payload);
+      await ThreadsTableTestHelper.addThreads({
+        id: threadId,
+        owner: user.addedUser.id,
       })
-      const { id: threadId } = JSON.parse(thread.payload);
       // Action
       const response = await server.inject({
         method: 'POST',
@@ -123,7 +115,7 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
       // Arrange
       const requestPayload = { content: 123 };
       const server = await createServer(container);
-      await server.inject({
+      const userResponse = await server.inject({
         method: 'POST',
         url: '/users',
         payload: {
@@ -140,19 +132,13 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
           password: 'secret',
         },
       });
+      const threadId = 'thread-123';
       const { data: auth } = JSON.parse(authReponse.payload);
-      const thread = await server.inject({
-        method: 'POST',
-        url: '/threads',
-        payload: {
-          title: 'Dicoding Thread',
-          body: 'Dicoding is good',
-        },
-        headers: { authorization: `Bearer ${auth.accessToken}` }
+      const { data: user } = JSON.parse(userResponse.payload);
+      await ThreadsTableTestHelper.addThreads({
+        id: threadId,
+        owner: user.addedUser.id,
       })
-      const threadResponse = JSON.parse(thread.payload);
-      const threadId = threadResponse.data.addedThread.id;
-      console.log(threadId);
       // Action
       const response = await server.inject({
         method: 'POST',
