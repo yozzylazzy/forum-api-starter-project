@@ -21,8 +21,6 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
       // Arrange
       const requestPayload = {
         content: 'Thread Comment',
-        owner: 'user-123',
-        threadId: 'thread-123',
       };
       const server = await createServer(container);
       await server.inject({
@@ -43,20 +41,29 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
         },
       });
       const { data: auth } = JSON.parse(authReponse.payload);
-
-      const threadId = 'thread-123';
-      await ThreadsTableTestHelper.addThreads({ id: threadId });
-
+      const thread = await server.inject({
+        method: 'POST',
+        url: '/threads',
+        payload: {
+          title: 'Dicoding Thread',
+          body: 'Dicoding is good',
+        },
+        headers: { Authorization: `Bearer ${auth.accessToken}` }
+      })
+      const { id: threadId } = JSON.parse(thread.payload);
       // Action
       const response = await server.inject({
         method: 'POST',
         url: `/threads/${threadId}/comments`,
-        payload: requestPayload,
+        payload: {
+          ...requestPayload,
+          threadId,
+          owner: 'user-123',
+        },
         headers: {
-          Authorization: `Bearer ${auth.accessToken}`,
+          authorization: `Bearer ${auth.accessToken}`,
         },
       });
-
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(201);
@@ -86,25 +93,30 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
         },
       });
       const { data: auth } = JSON.parse(authReponse.payload);
-
-      const threadId = 'thread-123';
-      await ThreadsTableTestHelper.addThreads({ id: threadId });
-
+      const thread = await server.inject({
+        method: 'POST',
+        url: '/threads',
+        payload: {
+          title: 'Dicoding Thread',
+          body: 'Dicoding is good',
+        },
+        headers: { authorization: `Bearer ${auth.accessToken}` }
+      })
+      const { id: threadId } = JSON.parse(thread.payload);
       // Action
       const response = await server.inject({
         method: 'POST',
         url: `/threads/${threadId}/comments`,
         payload: requestPayload,
         headers: {
-          Authorization: `Bearer ${auth.accessToken}`,
+          authorization: `Bearer ${auth.accessToken}`,
         },
       });
-
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(400);
       expect(responseJson.status).toEqual('fail');
-      expect(responseJson.message).toEqual('tidak dapat membuat komentar baru karena properti yang dibutuhkan tidak ada');
+      expect(responseJson.message).toEqual('gagal untuk membuat/menambahkan comment karena data tidak lengkap');
     });
 
     it('should response 400 when request payload not meet data type specification', async () => {
@@ -129,25 +141,32 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
         },
       });
       const { data: auth } = JSON.parse(authReponse.payload);
-
-      const threadId = 'thread-123';
-      await ThreadsTableTestHelper.addThreads({ id: threadId });
-
+      const thread = await server.inject({
+        method: 'POST',
+        url: '/threads',
+        payload: {
+          title: 'Dicoding Thread',
+          body: 'Dicoding is good',
+        },
+        headers: { authorization: `Bearer ${auth.accessToken}` }
+      })
+      const threadResponse = JSON.parse(thread.payload);
+      const threadId = threadResponse.data.addedThread.id;
+      console.log(threadId);
       // Action
       const response = await server.inject({
         method: 'POST',
         url: `/threads/${threadId}/comments`,
         payload: requestPayload,
         headers: {
-          Authorization: `Bearer ${auth.accessToken}`,
+          authorization: `Bearer ${auth.accessToken}`,
         },
       });
-
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(400);
       expect(responseJson.status).toEqual('fail');
-      expect(responseJson.message).toEqual('tidak dapat membuat komentar baru karena tipe data tidak sesuai');
+      expect(responseJson.message).toEqual('gagal untuk membuat/menambahkan comment karena tipe data tidak sesuai');
     });
   });
 });

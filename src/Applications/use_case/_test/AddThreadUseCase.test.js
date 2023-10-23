@@ -33,11 +33,9 @@ describe('AddThreadUseCase', () => {
     expect(createdThread).toStrictEqual(new CreatedThread({
       id: 'thread-123',
       title: useCasePayload.title,
-      body: useCasePayload.body,
       owner: useCasePayload.owner,
     }));
     expect(mockThreadRepository.createThread).toBeCalledWith(new CreateThread({
-      id: useCasePayload.id,
       title: useCasePayload.title,
       body: useCasePayload.body,
       owner: useCasePayload.owner,
