@@ -25,7 +25,7 @@ describe('CommentRepositoryPostgres', () => {
       await UsersTableTestHelper.addUser({ id: 'user-123' });
       await ThreadsTableTestHelper.addThread({ id: 'thread-123' });
       const createComment = new CreateComment({
-        content: 'Comment Thread',
+        content: 'Thread Comment',
         owner: 'user-123',
         threadId: 'thread-123',
       });
@@ -104,12 +104,12 @@ describe('CommentRepositoryPostgres', () => {
       expect(comments[0].id).toEqual('comment-123');
       expect(comments[0].date).toEqual('2023-10-23T16:37:32Z');
       expect(comments[0].username).toEqual('dicoding');
-      expect(comments[0].content).toEqual('Comment Thread');
+      expect(comments[0].content).toEqual('Thread Comment');
       expect(comments[0].is_delete).toEqual(false);
       expect(comments[1].id).toEqual('comment-456');
       expect(comments[1].date).toEqual('2023-10-23T17:37:32Z');
       expect(comments[1].username).toEqual('dicoding');
-      expect(comments[1].content).toEqual('Comment Thread');
+      expect(comments[1].content).toEqual('Thread Comment');
       expect(comments[1].is_delete).toEqual(false);
     });
   });

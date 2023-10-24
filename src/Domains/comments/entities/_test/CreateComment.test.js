@@ -1,7 +1,7 @@
 const CreateComment = require('../CreateComment');
 
 describe('CreateComment entities', () => {
-  it('should trow error when payload dose not contain needed property', () => {
+  it('should trow error when payload doesnt contain needed property', () => {
     // Arrange
     const payload = {
       content: 'Thread Comment',

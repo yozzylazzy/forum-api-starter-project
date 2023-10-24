@@ -72,4 +72,7 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
       expect(responseJson.data.addedReply).toBeDefined();
     });
   });
+  describe('when DELETE /threads/{threadId}/comments/{commentId}/replies/{replyId}', () => {
+    
+  });
 });

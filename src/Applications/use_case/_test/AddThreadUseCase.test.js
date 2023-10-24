@@ -8,7 +8,7 @@ describe('AddThreadUseCase', () => {
     // Arrange
     const useCasePayload = {
       title: 'Dicoding Thread',
-      body: 'Dicoding is ...',
+      body: 'Dicoding is good',
       owner: 'user-123',
     };
     const mockCreatedThread = new CreatedThread({
@@ -17,7 +17,6 @@ describe('AddThreadUseCase', () => {
       body: useCasePayload.body,
       owner: useCasePayload.owner,
     });
-
     /** creating dependency of use case */
     const mockThreadRepository = new ThreadRepository();
     /** mocking needed function */

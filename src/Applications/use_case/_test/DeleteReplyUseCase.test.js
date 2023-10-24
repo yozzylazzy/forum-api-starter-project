@@ -4,6 +4,31 @@ const CommentRepository = require('../../../Domains/comments/CommentRepository')
 const ThreadRepository = require('../../../Domains/threads/ThreadRepository');
 
 describe('DeleteReplyUseCase', () => {
+  it('should throw error if use case payload not meet data type specification', async () => {
+    // Arrange
+    const useCasePayload = {
+      threadId: 123,
+      owner: { id: 'user-123' },
+      commentId: 12.3,
+      replyId: true,
+    };
+    const deleteReplyUseCase = new DeleteReplyUseCase({});
+    // Action & Assert
+    await expect(deleteReplyUseCase.execute(useCasePayload))
+      .rejects
+      .toThrowError('DELETE_REPLY_USE_CASE.PAYLOAD_NOT_MEET_DATA_TYPE_SPECIFICATION');
+  });
+  it('should throw error if payload not contain needed payload', async () => {
+    // Arrange
+    const useCasePayload = {
+      owner: 'user-123'
+    };
+    const deleteReplyUseCase = new DeleteReplyUseCase(useCasePayload);
+    // Action & Assert
+    await expect(deleteReplyUseCase.execute(useCasePayload))
+      .rejects
+      .toThrowError('DELETE_REPLY_USE_CASE.NOT_CONTAIN_NEEDED_PAYLOAD');
+  });
   it('should orchestrating the delete reply action correctly', async () => {
     // Arrange
     const useCasePayload = {

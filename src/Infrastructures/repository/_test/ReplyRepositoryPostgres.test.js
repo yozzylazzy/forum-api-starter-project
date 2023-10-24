@@ -31,7 +31,7 @@ describe('ReplyRepositoryPostgres', () => {
       await ThreadsTableTestHelper.addThread({ id: 'thread-123' });
       await CommentsTableTestHelper.addComment({ id: 'comment-123' });
       const createReply = new CreateReply({
-        content: 'Comment Thread',
+        content: 'Thread Comment',
         owner: 'user-123',
         commentId: 'comment-123',
       });

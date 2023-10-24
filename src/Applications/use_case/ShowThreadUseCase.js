@@ -10,32 +10,26 @@ class ShowThreadUseCase {
     const thread = await this._threadRepository.getThreadById(useCasePayload);
     const comments = await this._commentRepository.getCommentsByThreadId(useCasePayload);
     const replies = await this._replyRepository.getRepliesByThreadId(useCasePayload);
-    const validatedComments = this._validateDeletedComment(comments);
-    const validatedReplies = this._validateDeletedReply(replies);
-    const commentsWithReplies = this._addReplyToComment(validatedComments, validatedReplies);
-    return {
-      ...thread,
-      comments: commentsWithReplies,
-    };
-  }
-  _validateDeletedComment(comments) {
-    for (const comment of comments) {
+    const cleanedComments = comments.map(comment => {
       if (comment.is_delete) {
         comment.content = '**komentar telah dihapus**';
       }
       delete comment.is_delete;
-    }
-    return comments;
-  }
-  _validateDeletedReply(replies) {
-    for (const reply of replies) {
+      return comment;
+    });
+    const cleanedReplies = replies.map(reply => {
       if (reply.is_delete) {
         reply.content = '**balasan telah dihapus**';
       }
       delete reply.is_delete;
-    }
-    return replies;
-  }
+      return reply;
+    });
+    const commentsWithReplies = this._addReplyToComment(cleanedComments, cleanedReplies);
+    return {
+      ...thread,
+      comments: commentsWithReplies,
+    };
+  };
   _addReplyToComment(comments, replies) {
     for (const comment of comments) {
       comment.replies = [];

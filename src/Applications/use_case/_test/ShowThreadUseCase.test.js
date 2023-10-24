@@ -19,14 +19,14 @@ describe('showThreadUseCase', () => {
         id: 'comment-123',
         username: 'user-123',
         date: '2021-08-08T07:26:17.018Z',
-        content: 'Comment Thread',
+        content: 'Thread Comment',
         is_delete: false,
       },
       {
         id: 'comment-456',
         username: 'user-123',
         date: '2021-08-08T07:26:17.018Z',
-        content: 'Comment Thread',
+        content: 'Thread Comment',
         is_delete: true,
       },
     ];
@@ -73,7 +73,7 @@ describe('showThreadUseCase', () => {
               username: 'user-123',
             },
           ],
-          content: 'Comment Thread',
+          content: 'Thread Comment',
         },
         {
           id: 'comment-456',

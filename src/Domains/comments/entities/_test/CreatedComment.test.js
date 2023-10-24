@@ -1,7 +1,7 @@
 const CreatedComment = require('../CreatedComment');
 
 describe('CreatedComment entities', () => {
-  it('should trow error when payload dose not contain needed property', () => {
+  it('should trow error when payload doesnt contain needed property', () => {
     // Arrange
     const payload = {
       id: 'comment-123',
