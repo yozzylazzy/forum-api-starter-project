@@ -46,7 +46,7 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
       await ThreadsTableTestHelper.addThread({
         id: threadId,
         owner: user.addedUser.id,
-      })
+      });
       // Action
       const response = await server.inject({
         method: 'POST',
@@ -94,7 +94,7 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
       await ThreadsTableTestHelper.addThread({
         id: threadId,
         owner: user.addedUser.id,
-      })
+      });
       // Action
       const response = await server.inject({
         method: 'POST',
@@ -138,7 +138,7 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
       await ThreadsTableTestHelper.addThread({
         id: threadId,
         owner: user.addedUser.id,
-      })
+      });
       // Action
       const response = await server.inject({
         method: 'POST',
@@ -186,12 +186,12 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
       await ThreadsTableTestHelper.addThread({
         id: requestPayload.threadId,
         owner: user.addedUser.id,
-      })
+      });
       await CommentsTableTestHelper.addComment({
         id: requestPayload.commentId,
         threadId: requestPayload.threadId,
         owner: user.addedUser.id,
-      })
+      });
       // Action
       const response = await server.inject({
         method: 'DELETE',
@@ -244,12 +244,12 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
     await ThreadsTableTestHelper.addThread({
       id: requestPayload.threadId,
       owner: user.addedUser.id,
-    })
+    });
     await CommentsTableTestHelper.addComment({
       id: requestPayload.commentId,
       threadId: requestPayload.threadId,
       owner: user.addedUser.id,
-    })
+    });
     // Action
     const response = await server.inject({
       method: 'DELETE',
