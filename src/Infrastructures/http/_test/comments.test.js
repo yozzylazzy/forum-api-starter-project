@@ -206,6 +206,7 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
       expect(responseJson.status).toEqual('success');
     });
   });
+
   it('should response 403 when user is not an authorized owner of the comment', async () => {
     // Arrange
     const requestPayload = {
@@ -264,6 +265,7 @@ describe('/threads/{threadId}/comments/... endpoint', () => {
     expect(responseJson.status).toEqual('fail');
     expect(responseJson.message).toEqual('gagal memverifikasi comment dan penulis komentar');
   });
+
   it('should response 404 when thread or comment doesnt exist', async () => {
     // Arrange
     const requestPayload = {

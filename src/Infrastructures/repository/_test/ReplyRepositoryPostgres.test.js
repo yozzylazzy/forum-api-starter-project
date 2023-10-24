@@ -135,6 +135,7 @@ describe('ReplyRepositoryPostgres', () => {
       await expect(replyRepositoryPostgres.verifyReplyOwner(replyId, userTwoId))
         .rejects.toThrowError(AuthorizationError);
     });
+
     it('should verify the reply owner correctly', async () => {
       // Arrange
       const commentId = 'comment-123';
