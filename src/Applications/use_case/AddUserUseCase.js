@@ -5,6 +5,7 @@ class AddUserUseCase {
     this._userRepository = userRepository;
     this._passwordHash = passwordHash;
   }
+
   async execute(useCasePayload) {
     const registerUser = new RegisterUser(useCasePayload);
     await this._userRepository.verifyAvailableUsername(registerUser.username);

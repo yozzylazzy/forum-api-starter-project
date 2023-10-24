@@ -5,7 +5,7 @@ describe('CreateComment entities', () => {
     // Arrange
     const payload = {
       content: 'Thread Comment',
-    }
+    };
     // Action & Assert
     expect(() => new CreateComment(payload)).toThrowError('CREATE_COMMENT.NOT_CONTAIN_NEEDED_PROPERTY');
   });
@@ -15,7 +15,7 @@ describe('CreateComment entities', () => {
       content: true,
       owner: 1234,
       threadId: { id: 'thread-123' },
-    }
+    };
     // Action & Assert
     expect(() => new CreateComment(payload)).toThrowError('CREATE_COMMENT.NOT_MEET_DATA_TYPE_SPECIFICATION');
   });
@@ -32,5 +32,5 @@ describe('CreateComment entities', () => {
     expect(content).toEqual(payload.content);
     expect(owner).toEqual(payload.owner);
     expect(threadId).toEqual(payload.threadId);
-  })
+  });
 });

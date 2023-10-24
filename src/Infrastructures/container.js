@@ -98,9 +98,9 @@ container.register([
         },
         {
           concrete: nanoid,
-        }
-      ]
-    }
+        },
+      ],
+    },
   },
   {
     key: CommentRepository.name,
@@ -112,9 +112,9 @@ container.register([
         },
         {
           concrete: nanoid,
-        }
-      ]
-    }
+        },
+      ],
+    },
   },
   {
     key: ReplyRepository.name,
@@ -126,8 +126,8 @@ container.register([
         },
         {
           concrete: nanoid,
-        }
-      ]
+        },
+      ],
     },
   },
 ]);
@@ -215,9 +215,9 @@ container.register([
         {
           name: 'threadRepository',
           internal: ThreadRepository.name,
-        }
-      ]
-    }
+        },
+      ],
+    },
   },
   {
     key: AddCommentUseCase.name,
@@ -231,9 +231,9 @@ container.register([
         }, {
           name: 'threadRepository',
           internal: ThreadRepository.name,
-        }
-      ]
-    }
+        },
+      ],
+    },
   },
   {
     key: DeleteCommentUseCase.name,
@@ -248,8 +248,8 @@ container.register([
           name: 'threadRepository',
           internal: ThreadRepository.name,
         },
-      ]
-    }
+      ],
+    },
   },
   {
     key: ShowThreadUseCase.name,
@@ -269,8 +269,8 @@ container.register([
           name: 'replyRepository',
           internal: ReplyRepository.name,
         },
-      ]
-    }
+      ],
+    },
   },
   {
     key: AddReplyUseCase.name,
@@ -313,7 +313,7 @@ container.register([
         },
       ],
     },
-  }
+  },
 ]);
 
 module.exports = container;

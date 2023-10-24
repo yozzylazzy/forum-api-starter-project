@@ -6,6 +6,7 @@ class CreateReply {
     this.owner = owner;
     this.commentId = commentId;
   }
+
   _verifyPayload(payload) {
     const { content, owner, commentId } = payload;
     if (!content || !owner || !commentId) {

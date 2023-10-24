@@ -19,7 +19,7 @@ describe('DeleteCommentUseCase', () => {
   it('should throw error if payload not contain needed payload', async () => {
     // Arrange
     const useCasePayload = {
-      owner: 'user-123'
+      owner: 'user-123',
     };
     const deleteCommentUseCase = new DeleteCommentUseCase(useCasePayload);
     // Action & Assert

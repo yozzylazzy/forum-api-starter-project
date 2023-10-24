@@ -3,6 +3,7 @@ class DeleteCommentUseCase {
     this._threadRepository = threadRepository;
     this._commentRepository = commentRepository;
   }
+
   async execute(useCasePayload) {
     this._validatePayload(useCasePayload);
     const { threadId, commentId, owner } = useCasePayload;
@@ -11,6 +12,7 @@ class DeleteCommentUseCase {
     await this._commentRepository.verifyCommentOwner(commentId, owner);
     await this._commentRepository.deleteCommentById(commentId);
   }
+
   _validatePayload(payload) {
     const { threadId, commentId, owner } = payload;
     if (!threadId || !commentId || !owner) {

@@ -34,8 +34,8 @@ const createServer = async (container) => {
         id: artifacts.decoded.payload.id,
         username: artifacts.decoded.payload.username,
       },
-    })
-  })
+    }),
+  });
 
   await server.register([
     {
@@ -57,7 +57,7 @@ const createServer = async (container) => {
     {
       plugin: replies,
       options: { container },
-    }
+    },
   ]);
 
   server.route({

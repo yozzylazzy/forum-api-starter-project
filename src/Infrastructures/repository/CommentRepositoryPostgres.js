@@ -1,7 +1,8 @@
 const AuthorizationError = require('../../Commons/exceptions/AuthorizationError');
 const NotFoundError = require('../../Commons/exceptions/NotFoundError');
-const CommentRepository = require("../../Domains/comments/CommentRepository");
-const CreatedComment = require("../../Domains/comments/entities/CreatedComment");
+const CommentRepository = require('../../Domains/comments/CommentRepository');
+const CreatedComment = require('../../Domains/comments/entities/CreatedComment');
+
 class CommentRepositoryPostgres extends CommentRepository {
   constructor(pool, idGenerator) {
     super();
@@ -16,7 +17,7 @@ class CommentRepositoryPostgres extends CommentRepository {
     const query = {
       text: 'INSERT INTO comments VALUES($1,$2,$3,$4,false,$5) RETURNING id, content, owner',
       values: [id, content, owner, threadId, date],
-    }
+    };
     const result = await this._pool.query(query);
     return new CreatedComment(result.rows[0]);
   }

@@ -14,7 +14,7 @@ describe('createReply entities', () => {
     const payload = {
       content: {},
       owner: true,
-      commentId: 1.2
+      commentId: 1.2,
     };
     // Action & Assert
     expect(() => new CreateReply(payload)).toThrowError('CREATE_REPLY.NOT_MEET_DATA_TYPE_SPECIFICATION');

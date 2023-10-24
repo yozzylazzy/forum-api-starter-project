@@ -5,13 +5,13 @@ const routes = (handler) => ([
     handler: handler.postThreadHandler,
     options: {
       auth: 'forumapi_jwt',
-    }
+    },
   },
   {
     method: 'GET',
-    path: `/threads/{threadId}`,
+    path: '/threads/{threadId}',
     handler: handler.getThreadByIdHandler,
-  }
+  },
 ]);
 
 module.exports = routes;

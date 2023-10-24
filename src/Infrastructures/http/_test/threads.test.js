@@ -3,7 +3,6 @@ const UsersTableTestHelper = require('../../../../tests/UsersTableTestHelper');
 const ThreadsTableTestHelper = require('../../../../tests/ThreadsTableTestHelper');
 const container = require('../../container');
 const createServer = require('../createServer');
-const CommentsTableTestHelper = require('../../../../tests/CommentsTableTestHelper');
 
 describe('/threads endpoint', () => {
   afterAll(async () => {
@@ -12,7 +11,7 @@ describe('/threads endpoint', () => {
   afterEach(async () => {
     await ThreadsTableTestHelper.cleanTable();
     await UsersTableTestHelper.cleanTable();
-  })
+  });
   describe('when POST /threads', () => {
     it('should response 201 and persisted thread', async () => {
       // Arrange
@@ -47,7 +46,7 @@ describe('/threads endpoint', () => {
         headers: {
           authorization: `Bearer ${auth.accessToken}`,
         },
-      })
+      });
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(201);
@@ -86,7 +85,7 @@ describe('/threads endpoint', () => {
         payload: requestPayload,
         headers: {
           authorization: `Bearer ${auth.accessToken}`,
-        }
+        },
       });
       // Assert
       const responseJson = JSON.parse(response.payload);
@@ -197,4 +196,4 @@ describe('/threads endpoint', () => {
       expect(responseJson.message).toEqual('thread tidak ditemukan');
     });
   });
-})
+});

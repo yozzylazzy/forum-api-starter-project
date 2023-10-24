@@ -6,7 +6,7 @@ describe('CreatedComment entities', () => {
     const payload = {
       id: 'comment-123',
       content: 'Thread Comment',
-    }
+    };
     // Action & Assert
     expect(() => new CreatedComment(payload)).toThrowError('CREATED_COMMENT.NOT_CONTAIN_NEEDED_PROPERTY');
   });
@@ -16,7 +16,7 @@ describe('CreatedComment entities', () => {
       id: true,
       content: 1234,
       owner: { id: 'user-123' },
-    }
+    };
     // Action & Assert
     expect(() => new CreatedComment(payload)).toThrowError('CREATED_COMMENT.NOT_MEET_DATA_TYPE_SPECIFICATION');
   });
@@ -33,5 +33,5 @@ describe('CreatedComment entities', () => {
     expect(id).toEqual(payload.id);
     expect(content).toEqual(payload.content);
     expect(owner).toEqual(payload.owner);
-  })
+  });
 });

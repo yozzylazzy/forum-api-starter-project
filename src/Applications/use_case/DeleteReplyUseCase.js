@@ -4,17 +4,23 @@ class DeleteReplyUseCase {
     this._commentRepository = commentRepository;
     this._replyRepository = replyRepository;
   }
+
   async execute(useCasePayload) {
     this._validatePayload(useCasePayload);
-    const { threadId, commentId, replyId, owner } = useCasePayload;
+    const {
+      threadId, commentId, replyId, owner,
+    } = useCasePayload;
     await this._threadRepository.verifyThreadExist(threadId);
     await this._commentRepository.verifyCommentExist(commentId);
     await this._replyRepository.verifyReplyExist(replyId);
     await this._replyRepository.verifyReplyOwner(replyId, owner);
     await this._replyRepository.deleteReplyById(replyId);
   }
+
   _validatePayload(useCasePayload) {
-    const { threadId, commentId, replyId, owner } = useCasePayload;
+    const {
+      threadId, commentId, replyId, owner,
+    } = useCasePayload;
     if (!threadId || !commentId || !replyId || !owner) {
       throw new Error('DELETE_REPLY_USE_CASE.NOT_CONTAIN_NEEDED_PAYLOAD');
     }

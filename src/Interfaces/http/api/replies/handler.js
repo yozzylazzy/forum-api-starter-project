@@ -7,6 +7,7 @@ class RepliesHandler {
     this.postReplyHandler = this.postReplyHandler.bind(this);
     this.deleteReplyByIdHandler = this.deleteReplyByIdHandler.bind(this);
   }
+
   async postReplyHandler(request, h) {
     const { id: owner } = request.auth.credentials;
     const { content } = request.payload;
@@ -18,12 +19,13 @@ class RepliesHandler {
     const response = h.response({
       status: 'success',
       data: {
-        addedReply
+        addedReply,
       },
     });
     response.code(201);
     return response;
   }
+
   async deleteReplyByIdHandler(request, h) {
     const { id: owner } = request.auth.credentials;
     const { threadId, commentId, replyId } = request.params;

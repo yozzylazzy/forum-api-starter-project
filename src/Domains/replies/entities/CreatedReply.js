@@ -6,6 +6,7 @@ class CreatedReply {
     this.content = content;
     this.owner = owner;
   }
+
   _verifyPayload(payload) {
     const { id, content, owner } = payload;
     if (!id || !content || !owner) {

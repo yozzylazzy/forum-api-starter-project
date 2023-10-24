@@ -22,6 +22,7 @@ class ThreadsHandler {
     response.code(201);
     return response;
   }
+
   async getThreadByIdHandler(request, h) {
     const showThreadUseCase = this._container.getInstance(ShowThreadUseCase.name);
     const { threadId } = request.params;
@@ -29,7 +30,7 @@ class ThreadsHandler {
     const response = h.response({
       status: 'success',
       data: {
-        thread: showThread
+        thread: showThread,
       },
     });
     response.code(200);

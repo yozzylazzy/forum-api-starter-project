@@ -21,7 +21,7 @@ describe('DeleteReplyUseCase', () => {
   it('should throw error if payload not contain needed payload', async () => {
     // Arrange
     const useCasePayload = {
-      owner: 'user-123'
+      owner: 'user-123',
     };
     const deleteReplyUseCase = new DeleteReplyUseCase(useCasePayload);
     // Action & Assert

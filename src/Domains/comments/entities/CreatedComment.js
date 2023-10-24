@@ -8,6 +8,7 @@ class CreatedComment {
     this.content = content;
     this.owner = owner;
   }
+
   _verifyPayload({ content, owner, id }) {
     if (!id || !content || !owner) {
       throw new Error('CREATED_COMMENT.NOT_CONTAIN_NEEDED_PROPERTY');

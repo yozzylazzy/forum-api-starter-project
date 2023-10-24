@@ -22,7 +22,7 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
     it('should response 201 and persisted reply', async () => {
       // Arrange
       const requestPayload = {
-        content: 'Reply content'
+        content: 'Reply content',
       };
       const server = await createServer(container);
       const userResponse = await server.inject({
@@ -210,7 +210,7 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         id: replyId,
         commentId,
         owner: user.addedUser.id,
-      })
+      });
       // Action
       const response = await server.inject({
         method: 'DELETE',
@@ -218,7 +218,7 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         headers: {
           Authorization: `Bearer ${auth.accessToken}`,
         },
-      })
+      });
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(200);
@@ -271,7 +271,7 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         id: replyId,
         commentId,
         owner: user.addedUser.id,
-      })
+      });
       // Action
       const response = await server.inject({
         method: 'DELETE',
@@ -324,7 +324,7 @@ describe('/threads/{threadId}/comments/{commentId}/replies endpoint', () => {
         id: 'reply-123',
         commentId,
         owner: user.addedUser.id,
-      })
+      });
       // Action
       const response = await server.inject({
         method: 'DELETE',

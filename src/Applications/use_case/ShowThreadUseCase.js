@@ -1,23 +1,26 @@
 class ShowThreadUseCase {
   constructor({
-    threadRepository, commentRepository, replyRepository
+    threadRepository, commentRepository, replyRepository,
   }) {
     this._threadRepository = threadRepository;
     this._commentRepository = commentRepository;
     this._replyRepository = replyRepository;
   }
+
   async execute(useCasePayload) {
     const thread = await this._threadRepository.getThreadById(useCasePayload);
     const comments = await this._commentRepository.getCommentsByThreadId(useCasePayload);
     const replies = await this._replyRepository.getRepliesByThreadId(useCasePayload);
-    const cleanedComments = comments.map(comment => {
+
+    const cleanedComments = comments.map((comment) => {
       if (comment.is_delete) {
         comment.content = '**komentar telah dihapus**';
       }
       delete comment.is_delete;
       return comment;
     });
-    const cleanedReplies = replies.map(reply => {
+
+    const cleanedReplies = replies.map((reply) => {
       if (reply.is_delete) {
         reply.content = '**balasan telah dihapus**';
       }
@@ -29,7 +32,8 @@ class ShowThreadUseCase {
       ...thread,
       comments: commentsWithReplies,
     };
-  };
+  }
+
   _addReplyToComment(comments, replies) {
     for (const comment of comments) {
       comment.replies = [];
