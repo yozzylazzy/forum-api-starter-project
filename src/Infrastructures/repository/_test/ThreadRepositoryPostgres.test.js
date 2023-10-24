@@ -27,10 +27,8 @@ describe('ThreadRepositoryPostgres', () => {
       });
       const fakeIdGenerator = () => '123'; // stub!
       const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, fakeIdGenerator);
-
       // Action
       const createdThread = await threadRepositoryPostgres.createThread(createThread);
-
       // Assert
       const threads = await ThreadsTableTestHelper.findThreadsById(createdThread.id);
       expect(threads).toHaveLength(1);
@@ -51,7 +49,7 @@ describe('ThreadRepositoryPostgres', () => {
       const fakeIdGenerator = () => '123';
       const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, fakeIdGenerator);
       // Action & Assert
-      expect(threadRepositoryPostgres.verifyThreadExist(threadId))
+      await expect(threadRepositoryPostgres.verifyThreadExist(threadId))
         .resolves.not.toThrowError(NotFoundError);
     });
   });

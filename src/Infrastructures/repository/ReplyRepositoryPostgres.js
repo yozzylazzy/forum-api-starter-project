@@ -28,7 +28,7 @@ class ReplyRepositoryPostgres extends ReplyRepository {
     };
     const result = await this._pool.query(query);
     if (!result.rowCount) {
-      throw new NotFoundError('comment tidak ditemukan');
+      throw new NotFoundError('reply tidak ditemukan');
     }
   }
 
@@ -39,7 +39,7 @@ class ReplyRepositoryPostgres extends ReplyRepository {
     };
     const result = await this._pool.query(query);
     if (!result.rowCount) {
-      throw new AuthorizationError('gagal memverifikasi comment dan penulis komentar');
+      throw new AuthorizationError('gagal memverifikasi reply dan penulis reply');
     }
   }
 
@@ -50,7 +50,7 @@ class ReplyRepositoryPostgres extends ReplyRepository {
     };
     const result = await this._pool.query(query);
     if (!result.rowCount) {
-      throw new NotFoundError('comment tidak ditemukan');
+      throw new NotFoundError('reply tidak ditemukan');
     }
   }
 

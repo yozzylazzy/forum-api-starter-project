@@ -2,6 +2,8 @@
 const CommentsTableTestHelper = require('../../../../tests/CommentsTableTestHelper');
 const ThreadsTableTestHelper = require('../../../../tests/ThreadsTableTestHelper');
 const UsersTableTestHelper = require('../../../../tests/UsersTableTestHelper');
+const AuthorizationError = require('../../../Commons/exceptions/AuthorizationError');
+const NotFoundError = require('../../../Commons/exceptions/NotFoundError');
 // Domains
 const CreateComment = require('../../../Domains/comments/entities/CreateComment');
 const CreatedComment = require('../../../Domains/comments/entities/CreatedComment');
@@ -13,6 +15,7 @@ const CommentRepositoryPostgres = require('../CommentRepositoryPostgres');
 describe('CommentRepositoryPostgres', () => {
   afterEach(async () => {
     await CommentsTableTestHelper.cleanTable();
+    await ThreadsTableTestHelper.cleanTable();
     await UsersTableTestHelper.cleanTable();
   });
   afterAll(async () => {
@@ -44,12 +47,65 @@ describe('CommentRepositoryPostgres', () => {
     });
   });
 
-  describe('verifyCommentExist', () => {
-
+  describe('verifyCommentExist function', () => {
+    it('should throw NotFoundError when comment not found', async () => {
+      // Arrange
+      const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, {});
+      // Action & Assert
+      await expect(commentRepositoryPostgres.verifyCommentExist('comment-1212'))
+        .rejects.toThrowError(NotFoundError);
+    });
+    it('should not throw NotFoundError when comment found', async () => {
+      // Arrange
+      const commentId = 'comment-123';
+      await UsersTableTestHelper.addUser({ id: 'user-123' });
+      await ThreadsTableTestHelper.addThread({ id: 'thread-123', owner: 'user-123' });
+      await CommentsTableTestHelper.addComment({
+        id: commentId,
+        owner: 'user-123',
+        threadId: 'thread-123',
+      });
+      const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, {});
+      // Action & Assert
+      await expect(commentRepositoryPostgres.verifyCommentExist(commentId))
+        .resolves.not.toThrowError(NotFoundError);
+    });
   });
 
-  describe('verifyCommentOwner', () => {
-
+  describe('verifyCommentOwner function', () => {
+    it('should throw UnauthorizedError when provided userId is not the comment owner', async () => {
+      // Arrange
+      const commentId = 'comment-123';
+      const userId = 'user-123';
+      const userTwoId = 'user-456';
+      await UsersTableTestHelper.addUser({ id: userId });
+      await ThreadsTableTestHelper.addThread({ id: 'thread-123', owner: 'user-123' });
+      await CommentsTableTestHelper.addComment({
+        id: commentId,
+        owner: 'user-123',
+        threadId: 'thread-123',
+      });
+      const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, {});
+      // Action & Assert
+      await expect(commentRepositoryPostgres.verifyCommentOwner(commentId, userTwoId))
+        .rejects.toThrowError(AuthorizationError);
+    });
+    it('should verify the comment owner correctly', async () => {
+      // Arrange
+      const commentId = 'comment-123';
+      const userId = 'user-123';
+      await UsersTableTestHelper.addUser({ id: userId });
+      await ThreadsTableTestHelper.addThread({ id: 'thread-123' });
+      await CommentsTableTestHelper.addComment({
+        id: commentId,
+        owner: 'user-123',
+        threadId: 'thread-123',
+      });
+      const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, {});
+      // Action & Assert
+      await expect(commentRepositoryPostgres.verifyCommentOwner(commentId, userId))
+        .resolves.not.toThrowError(AuthorizationError);
+    });
   });
 
   describe('deleteComment function', () => {
@@ -94,10 +150,8 @@ describe('CommentRepositoryPostgres', () => {
       });
       const fakeIdGenerator = () => '123';
       const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, fakeIdGenerator);
-
       // Action
       const comments = await commentRepositoryPostgres.getCommentsByThreadId(threadId);
-
       // Assert
       expect(comments).toBeDefined();
       expect(comments).toHaveLength(2);

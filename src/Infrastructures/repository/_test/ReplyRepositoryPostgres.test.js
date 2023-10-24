@@ -63,18 +63,16 @@ describe('ReplyRepositoryPostgres', () => {
       };
       const userData = {
         id: 'user-123',
-        username: 'the-username',
+        username: 'dicoding',
       };
-      await UsersTableTestHelper.addUser(userData); // add user with id user-123
-      await ThreadsTableTestHelper.addThread({ id: threadId }); // add thread with id thread-123
-      await CommentsTableTestHelper.addComment({ id: 'comment-123' }); // add comment with id comment-123
-      await RepliesTableTestHelper.addReplies(replyData); // add reply with id reply-123
-      const fakeIdGenerator = () => '123'; // stub!
+      await UsersTableTestHelper.addUser(userData);
+      await ThreadsTableTestHelper.addThread({ id: threadId });
+      await CommentsTableTestHelper.addComment({ id: 'comment-123' });
+      await RepliesTableTestHelper.addReplies(replyData);
+      const fakeIdGenerator = () => '123';
       const replyRepositoryPostgres = new ReplyRepositoryPostgres(pool, fakeIdGenerator);
-
       // Action
       const repliesByThreadId = await replyRepositoryPostgres.getRepliesByThreadId(threadId);
-
       // Assert
       expect(repliesByThreadId).toBeDefined();
       expect(repliesByThreadId).toHaveLength(1);
@@ -89,7 +87,7 @@ describe('ReplyRepositoryPostgres', () => {
       expect(repliesByThreadId[0]).toHaveProperty('comment_id');
       expect(repliesByThreadId[0].comment_id).toEqual(replyData.commentId);
       expect(repliesByThreadId[0]).toHaveProperty('is_delete');
-      expect(repliesByThreadId[0].is_delete).toEqual(false); // default value in helper
+      expect(repliesByThreadId[0].is_delete).toEqual(false);
     });
   });
 
@@ -97,7 +95,6 @@ describe('ReplyRepositoryPostgres', () => {
     it('should throw NotFoundError when reply not found', () => {
       // Arrange
       const replyRepositoryPostgres = new ReplyRepositoryPostgres(pool, {});
-
       // Action & Assert
       return expect(replyRepositoryPostgres.verifyReplyExist('hello-world'))
         .rejects
@@ -107,17 +104,14 @@ describe('ReplyRepositoryPostgres', () => {
     it('should not throw NotFoundError when reply found', async () => {
       // Arrange
       const replyId = 'reply-123';
-      await UsersTableTestHelper.addUser({ id: 'user-123' }); // add user with id user-123
-      await ThreadsTableTestHelper.addThread({ id: 'thread-123' }); // add thread with id thread-123
-      await CommentsTableTestHelper.addComment({ id: 'comment-123' }); // add comment with id comment-123
-      await RepliesTableTestHelper.addReplies({ id: replyId }); // add reply with id reply-123
+      await UsersTableTestHelper.addUser({ id: 'user-123' });
+      await ThreadsTableTestHelper.addThread({ id: 'thread-123' });
+      await CommentsTableTestHelper.addComment({ id: 'comment-123' });
+      await RepliesTableTestHelper.addReplies({ id: replyId });
       const replyRepositoryPostgres = new ReplyRepositoryPostgres(pool, {});
-
       // Action & Assert
       return expect(replyRepositoryPostgres.verifyReplyExist(replyId))
-        .resolves
-        .not
-        .toThrowError(NotFoundError);
+        .resolves.not.toThrowError(NotFoundError);
     });
   });
 
@@ -127,7 +121,7 @@ describe('ReplyRepositoryPostgres', () => {
       const commentId = 'comment-123';
       const replyId = 'reply-123';
       const userId = 'user-123';
-      const wrongUserId = 'user-456';
+      const userTwoId = 'user-456';
       await UsersTableTestHelper.addUser({ id: userId }); // add user with id user-123
       await ThreadsTableTestHelper.addThread({ id: 'thread-123' }); // add thread with id thread-123
       await CommentsTableTestHelper.addComment({ // add comment with id comment-123
@@ -137,12 +131,10 @@ describe('ReplyRepositoryPostgres', () => {
         id: replyId, owner: userId, commentId,
       });
       const replyRepositoryPostgres = new ReplyRepositoryPostgres(pool, {});
-
       // Action & Assert
-      expect(replyRepositoryPostgres.verifyReplyOwner(replyId, wrongUserId))
+      await expect(replyRepositoryPostgres.verifyReplyOwner(replyId, userTwoId))
         .rejects.toThrowError(AuthorizationError);
     });
-
     it('should verify the reply owner correctly', async () => {
       // Arrange
       const commentId = 'comment-123';
@@ -160,7 +152,7 @@ describe('ReplyRepositoryPostgres', () => {
       });
       const replyRepositoryPostgres = new ReplyRepositoryPostgres(pool, {});
       // Action & Assert
-      expect(replyRepositoryPostgres.verifyReplyOwner(replyId, userId))
+      await expect(replyRepositoryPostgres.verifyReplyOwner(replyId, userId))
         .resolves.not.toThrowError(AuthorizationError);
     });
   });
@@ -169,11 +161,9 @@ describe('ReplyRepositoryPostgres', () => {
     it('should throw NotFoundError when reply not found', () => {
       // Arrange
       const replyRepositoryPostgres = new ReplyRepositoryPostgres(pool, {});
-
       // Action & Assert
-      return expect(replyRepositoryPostgres.deleteReplyById('hello-world'))
-        .rejects
-        .toThrowError(NotFoundError);
+      return expect(replyRepositoryPostgres.deleteReplyById('reply-1212'))
+        .rejects.toThrowError(NotFoundError);
     });
 
     it('should delete reply by id and return success correctly', async () => {
@@ -187,10 +177,8 @@ describe('ReplyRepositoryPostgres', () => {
       });
       await RepliesTableTestHelper.addReplies({ id: replyId, owner: 'user-123', commentId }); // add reply with id reply-123
       const replyRepositoryPostgres = new ReplyRepositoryPostgres(pool, {});
-
       // Action
       await replyRepositoryPostgres.deleteReplyById(replyId);
-
       // Assert
       const replies = await RepliesTableTestHelper.findRepliesById(replyId);
       expect(replies).toHaveLength(1);
