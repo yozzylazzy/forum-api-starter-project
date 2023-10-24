@@ -149,9 +149,11 @@ describe('ReplyRepositoryPostgres', () => {
       const replyId = 'reply-123';
       const userId = 'user-123';
       await UsersTableTestHelper.addUser({ id: userId }); // add user with id user-123
-      await ThreadsTableTestHelper.addThread({ id: 'thread-123' }); // add thread with id thread-123
+      await ThreadsTableTestHelper.addThread({ id: 'thread-123', owner: userId }); // add thread with id thread-123
       await CommentsTableTestHelper.addComment({ // add comment with id comment-123
         id: commentId,
+        threadId: 'thread-123',
+        owner: userId,
       });
       await RepliesTableTestHelper.addReplies({ // add reply with id reply-123
         id: replyId, owner: userId, commentId,
