@@ -1,9 +1,14 @@
+// Table Helper
 const ThreadsTableTestHelper = require('../../../../tests/ThreadsTableTestHelper');
 const UsersTableTestHelper = require('../../../../tests/UsersTableTestHelper');
+// Domains
 const CreateThread = require('../../../Domains/threads/entities/CreateThread');
-const ThreadRepositoryPostgres = require('../ThreadRepositoryPostgres');
-const pool = require('../../database/postgres/pool');
 const CreatedThread = require('../../../Domains/threads/entities/CreatedThread');
+// Postgres
+const pool = require('../../database/postgres/pool');
+// Infrasturture
+const ThreadRepositoryPostgres = require('../ThreadRepositoryPostgres');
+// Error
 const NotFoundError = require('../../../Commons/exceptions/NotFoundError');
 
 describe('ThreadRepositoryPostgres', () => {

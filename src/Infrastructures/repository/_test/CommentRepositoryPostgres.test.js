@@ -2,8 +2,6 @@
 const CommentsTableTestHelper = require('../../../../tests/CommentsTableTestHelper');
 const ThreadsTableTestHelper = require('../../../../tests/ThreadsTableTestHelper');
 const UsersTableTestHelper = require('../../../../tests/UsersTableTestHelper');
-const AuthorizationError = require('../../../Commons/exceptions/AuthorizationError');
-const NotFoundError = require('../../../Commons/exceptions/NotFoundError');
 // Domains
 const CreateComment = require('../../../Domains/comments/entities/CreateComment');
 const CreatedComment = require('../../../Domains/comments/entities/CreatedComment');
@@ -12,6 +10,9 @@ const pool = require('../../database/postgres/pool');
 // Infrastructure
 const CommentRepositoryPostgres = require('../CommentRepositoryPostgres');
 const ThreadRepositoryPostgres = require('../ThreadRepositoryPostgres');
+// Error
+const AuthorizationError = require('../../../Commons/exceptions/AuthorizationError');
+const NotFoundError = require('../../../Commons/exceptions/NotFoundError');
 
 describe('CommentRepositoryPostgres', () => {
   afterEach(async () => {

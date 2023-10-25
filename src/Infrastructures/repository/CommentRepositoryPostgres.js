@@ -1,7 +1,10 @@
+// Domains
+const CreatedComment = require('../../Domains/comments/entities/CreatedComment');
+// Infrastructure
+const CommentRepository = require('../../Domains/comments/CommentRepository');
+// Error
 const AuthorizationError = require('../../Commons/exceptions/AuthorizationError');
 const NotFoundError = require('../../Commons/exceptions/NotFoundError');
-const CommentRepository = require('../../Domains/comments/CommentRepository');
-const CreatedComment = require('../../Domains/comments/entities/CreatedComment');
 
 class CommentRepositoryPostgres extends CommentRepository {
   constructor(pool, idGenerator) {

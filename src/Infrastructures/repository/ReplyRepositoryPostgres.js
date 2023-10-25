@@ -1,7 +1,10 @@
+// Domains
+const CreatedReply = require('../../Domains/replies/entities/CreatedReply');
+// Infrastructure
+const ReplyRepository = require('../../Domains/replies/ReplyRepository');
+// Error
 const AuthorizationError = require('../../Commons/exceptions/AuthorizationError');
 const NotFoundError = require('../../Commons/exceptions/NotFoundError');
-const ReplyRepository = require('../../Domains/replies/ReplyRepository');
-const CreatedReply = require('../../Domains/replies/entities/CreatedReply');
 
 class ReplyRepositoryPostgres extends ReplyRepository {
   constructor(pool, idGenerator) {
@@ -15,7 +18,7 @@ class ReplyRepositoryPostgres extends ReplyRepository {
     const id = `reply-${this._idGenerator()}`;
     const date = new Date().toISOString();
     const query = {
-      text: `INSERT INTO REPLIES(id,content,owner,comment_id,date)
+      text: `INSERT INTO replies(id,content,owner,comment_id,date)
       VALUES($1,$2,$3,$4,$5) RETURNING id, content, owner`,
       values: [id, content, owner, commentId, date],
     };
@@ -59,12 +62,12 @@ class ReplyRepositoryPostgres extends ReplyRepository {
   async getRepliesByThreadId(threadId) {
     const query = {
       text: `
-      SELECT replies.id, replies.content, replies.date, users.username, replies.is_delete, replies.comment_id
-      FROM replies
-      INNER JOIN users ON replies.owner = users.id
-      INNER JOIN comments ON replies.comment_id = comments.id
-      WHERE comments.thread_id = $1
-      ORDER BY replies.date ASC
+      SELECT r.id, r.content, r.date, u.username, r.is_delete, r.comment_id
+      FROM replies r
+      INNER JOIN users u ON r.owner = u.id
+      INNER JOIN comments c ON r.comment_id = c.id
+      WHERE c.thread_id = $1
+      ORDER BY r.date ASC
     `,
       values: [threadId],
     };

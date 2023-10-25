@@ -1,0 +1,1804 @@
+{
+	"id": "e196de8e-10e6-4a9d-80e8-3ea328dcceae",
+	"name": "Forum API V1 Test",
+	"timestamp": "2023-10-25T00:16:10.419Z",
+	"collection_id": "25586999-959de82d-df9d-4186-9393-a6bb27661635",
+	"folder_id": 0,
+	"environment_id": "25586999-c5d5fba2-ac7e-4d7b-bc34-9d4acc450654",
+	"totalPass": 98,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-10-25T00:16:03.706Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "e243a24d-5d8b-469e-a223-c03201c265be",
+			"name": "Add User with Valid Payload",
+			"url": "http://localhost:5000/users",
+			"time": 114,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"should response 201 status code": true,
+				"should response with correct property and message": true
+			},
+			"testPassFailCounts": {
+				"should response 201 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should response with correct property and message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"should response 201 status code": true,
+					"should response with correct property and message": true
+				}
+			]
+		},
+		{
+			"id": "eb540b69-1a82-44e0-9d53-c4cde55e41c2",
+			"name": "Add User with Bad Payload",
+			"url": "http://localhost:5000/users",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response status code should have 400 value": true,
+				"response body should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response status code should have 400 value": {
+					"pass": 7,
+					"fail": 0
+				},
+				"response body should have correct property and value": {
+					"pass": 7,
+					"fail": 0
+				}
+			},
+			"times": [
+				5,
+				3,
+				3,
+				3,
+				2,
+				3,
+				3
+			],
+			"allTests": [
+				{
+					"response status code should have 400 value": true,
+					"response body should have correct property and value": true
+				},
+				{
+					"response status code should have 400 value": true,
+					"response body should have correct property and value": true
+				},
+				{
+					"response status code should have 400 value": true,
+					"response body should have correct property and value": true
+				},
+				{
+					"response status code should have 400 value": true,
+					"response body should have correct property and value": true
+				},
+				{
+					"response status code should have 400 value": true,
+					"response body should have correct property and value": true
+				},
+				{
+					"response status code should have 400 value": true,
+					"response body should have correct property and value": true
+				},
+				{
+					"response status code should have 400 value": true,
+					"response body should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "0cab67d0-3cf5-4387-abc5-3228b4ad91d7",
+			"name": "Add User with Exist Username",
+			"url": "http://localhost:5000/users",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"should response 400 status code": true,
+				"should response with correct property and message": true
+			},
+			"testPassFailCounts": {
+				"should response 400 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should response with correct property and message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"should response 400 status code": true,
+					"should response with correct property and message": true
+				}
+			]
+		},
+		{
+			"id": "3d567f81-6422-486b-9d46-d1c63e682d2f",
+			"name": "Add User with Exist Username Copy",
+			"url": "http://localhost:5000/users",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"should response 400 status code": true,
+				"should response with correct property and message": true
+			},
+			"testPassFailCounts": {
+				"should response 400 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should response with correct property and message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"should response 400 status code": true,
+					"should response with correct property and message": true
+				}
+			]
+		},
+		{
+			"id": "a4d57065-e354-4ead-b82f-f98f37c88a39",
+			"name": "Add User",
+			"url": "http://localhost:5000/users",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "48ed89c0-adc9-44a7-9eb6-3ad8d003f7ab",
+			"name": "Login with Invalid Password",
+			"url": "http://localhost:5000/authentications",
+			"time": 57,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"should response 401 status code": true,
+				"should respose with correct property and message": true
+			},
+			"testPassFailCounts": {
+				"should response 401 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should respose with correct property and message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				57
+			],
+			"allTests": [
+				{
+					"should response 401 status code": true,
+					"should respose with correct property and message": true
+				}
+			]
+		},
+		{
+			"id": "5eaf77df-f37e-4b8f-aa36-cac423a135d9",
+			"name": "Login with Invalid Username",
+			"url": "http://localhost:5000/authentications",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"should response 400 status code": true,
+				"should respose with correct property and message": true
+			},
+			"testPassFailCounts": {
+				"should response 400 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should respose with correct property and message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response 400 status code": true,
+					"should respose with correct property and message": true
+				}
+			]
+		},
+		{
+			"id": "80cd9f82-afaf-4a53-8940-d66c4a0a86f3",
+			"name": "Login with Valid Credential",
+			"url": "http://localhost:5000/authentications",
+			"time": 70,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"should response 201 status code": true,
+				"should respose with correct property and message": true
+			},
+			"testPassFailCounts": {
+				"should response 201 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should respose with correct property and message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				70
+			],
+			"allTests": [
+				{
+					"should response 201 status code": true,
+					"should respose with correct property and message": true
+				}
+			]
+		},
+		{
+			"id": "55f20e83-9ce0-4e8f-9d6d-a799863ef91d",
+			"name": "Refresh Access Token with Valid Refresh Token",
+			"url": "http://localhost:5000/authentications",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"should response 200 status code": true,
+				"should response with corrent message and property": true
+			},
+			"testPassFailCounts": {
+				"should response 200 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should response with corrent message and property": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"should response 200 status code": true,
+					"should response with corrent message and property": true
+				}
+			]
+		},
+		{
+			"id": "7d8c22fd-2ffa-4b2a-bda6-45f57198b2f6",
+			"name": "Refresh Access Token with invalid Refresh Token",
+			"url": "http://localhost:5000/authentications",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"should response 400 status code": true,
+				"should response with corrent message and property": true
+			},
+			"testPassFailCounts": {
+				"should response 400 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should response with corrent message and property": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"should response 400 status code": true,
+					"should response with corrent message and property": true
+				}
+			]
+		},
+		{
+			"id": "b5481da3-f789-4b6f-9725-bd42942189ad",
+			"name": "Logout with Valid Refresh Token",
+			"url": "http://localhost:5000/authentications",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"should response with 200 status code": true,
+				"response should contain status with success value": true,
+				"when refreshing access token with the deleted refresh token": true,
+				"the response code should be 400": true
+			},
+			"testPassFailCounts": {
+				"should response with 200 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response should contain status with success value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"when refreshing access token with the deleted refresh token": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the response code should be 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"should response with 200 status code": true,
+					"response should contain status with success value": true,
+					"when refreshing access token with the deleted refresh token": true,
+					"the response code should be 400": true
+				}
+			]
+		},
+		{
+			"id": "4477caa8-79e8-4097-9af2-f216d6ee4e24",
+			"name": "Logout with Invalid Refresh Token",
+			"url": "http://localhost:5000/authentications",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"should response with 400 status code": true,
+				"response should contain correct status and message": true
+			},
+			"testPassFailCounts": {
+				"should response with 400 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response should contain correct status and message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"should response with 400 status code": true,
+					"response should contain correct status and message": true
+				}
+			]
+		},
+		{
+			"id": "07da6c20-8142-402a-ab48-c310b42f4230",
+			"name": "[No Test] Add User",
+			"url": "http://localhost:5000/users",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8b900794-a4d8-4a65-ae4e-be7936c6b226",
+			"name": "[No Test] Login",
+			"url": "http://localhost:5000/authentications",
+			"time": 68,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				68
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "359c724f-a3eb-4669-b8da-85c837879916",
+			"name": "Add Thread with No Authentication",
+			"url": "http://localhost:5000/threads",
+			"time": 3,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"should response 401 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 401 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"should response 401 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "624edbab-fc27-4a49-b154-359b2007bc5d",
+			"name": "Add Thread with Bad Payload",
+			"url": "http://localhost:5000/threads",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"should response 400 status code": true,
+				"should show fail status and message": true
+			},
+			"testPassFailCounts": {
+				"should response 400 status code": {
+					"pass": 5,
+					"fail": 0
+				},
+				"should show fail status and message": {
+					"pass": 5,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				2,
+				2,
+				2,
+				3
+			],
+			"allTests": [
+				{
+					"should response 400 status code": true,
+					"should show fail status and message": true
+				},
+				{
+					"should response 400 status code": true,
+					"should show fail status and message": true
+				},
+				{
+					"should response 400 status code": true,
+					"should show fail status and message": true
+				},
+				{
+					"should response 400 status code": true,
+					"should show fail status and message": true
+				},
+				{
+					"should response 400 status code": true,
+					"should show fail status and message": true
+				}
+			]
+		},
+		{
+			"id": "20340f27-bb88-49f1-9db5-7001abbf4a2a",
+			"name": "Add Thread with Valid Payload",
+			"url": "http://localhost:5000/threads",
+			"time": 5,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"should response 201 status code": true,
+				"should response with valid property and value": true
+			},
+			"testPassFailCounts": {
+				"should response 201 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should response with valid property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"should response 201 status code": true,
+					"should response with valid property and value": true
+				}
+			]
+		},
+		{
+			"id": "40eedf80-5af5-4a3c-8ba7-4b391d1747f0",
+			"name": "[No Test] Add User Dicoding",
+			"url": "http://localhost:5000/users",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4dee3c16-0376-4eb6-ab0a-2f45899a8853",
+			"name": "[No Test] Add User Johndoe",
+			"url": "http://localhost:5000/users",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "20618954-51fc-4740-8b19-d74f7c30fef4",
+			"name": "[No Test] Login User Dicoding",
+			"url": "http://localhost:5000/authentications",
+			"time": 56,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				56
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9a2aec6c-693e-4e8b-b077-271427d6f1f1",
+			"name": "[No Test] Login User Johndoe",
+			"url": "http://localhost:5000/authentications",
+			"time": 62,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				62
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "db8a2041-9e31-45c5-b589-74e88a3e9e93",
+			"name": "[No Test] Add Thread with User Dicoding",
+			"url": "http://localhost:5000/threads",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "270e4e46-30a9-4fef-8f1c-230080d95fc8",
+			"name": "Add Comment with No Authentication",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6/comments",
+			"time": 2,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"should response 401 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 401 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"should response 401 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "126cf106-bac3-423e-a5bb-8649b5b17967",
+			"name": "Add Comment with Not Found Thread",
+			"url": "http://localhost:5000/threads/xxx/comments",
+			"time": 6,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response should have 404 status code": true,
+				"response should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response should have 404 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"response should have 404 status code": true,
+					"response should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "11e8b0e8-3fc4-4f7a-8fef-56af9bea63e7",
+			"name": "Add Comment with Invalid Payload",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6/comments",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response should have 400 status code": true,
+				"response should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response should have 400 status code": {
+					"pass": 2,
+					"fail": 0
+				},
+				"response should have correct property and value": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				3
+			],
+			"allTests": [
+				{
+					"response should have 400 status code": true,
+					"response should have correct property and value": true
+				},
+				{
+					"response should have 400 status code": true,
+					"response should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "9802bfb5-fd31-474f-a87b-485cbf29a996",
+			"name": "Add Comment with User Johndoe",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6/comments",
+			"time": 6,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"response should have 201 status code": true,
+				"response should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response should have 201 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"response should have 201 status code": true,
+					"response should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "fdb3e405-e8de-42ee-a4d6-03b2a873b3db",
+			"name": "Add Comment with User Dicoding",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6/comments",
+			"time": 4,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"response should have 201 status code": true,
+				"response should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response should have 201 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response should have correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"response should have 201 status code": true,
+					"response should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "eac4acfe-c22a-4266-a444-496d9549b8dc",
+			"name": "Get Commented Thread",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"should response with status code 200": true,
+				"should contain correct property and value": true
+			},
+			"testPassFailCounts": {
+				"should response with status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should contain correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"should response with status code 200": true,
+					"should contain correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "f29cbc8f-a08b-4669-b26b-bc8b1ac621af",
+			"name": "Delete Dicoding Comment with No Authentication",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6/comments/comment-S-IiVQfyYEg9f4XlEEOW8",
+			"time": 2,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"should response 401 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 401 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"should response 401 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "7d5d2385-3a66-4013-ab8f-c88bc27c2a3e",
+			"name": "Delete Not Found Comment",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6/comments/xxx",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"should response 404 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 404 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"should response 404 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "c9f751ce-2bc5-488d-a20a-e047473ce191",
+			"name": "Delete Dicoding Comment with Using Johndoe",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6/comments/comment-S-IiVQfyYEg9f4XlEEOW8",
+			"time": 4,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"should response 403 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 403 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response 403 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "f5f0b0ac-7b1e-4aa4-a702-c5966a877045",
+			"name": "Delete Dicoding Comment with Using Dicoding",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6/comments/comment-S-IiVQfyYEg9f4XlEEOW8",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"should response 200 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 200 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response 200 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "290f3c1a-8c99-4ca8-a0f9-af35f3220aa8",
+			"name": "Get Thread After Dicoding Comment Deleted",
+			"url": "http://localhost:5000/threads/thread-EaiAuagR5UImixwWvuRx6",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"should response with status code 200": true,
+				"should contain correct property and value": true
+			},
+			"testPassFailCounts": {
+				"should response with status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should contain correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response with status code 200": true,
+					"should contain correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "b48e4d7c-17bb-4ac3-a981-8351fa86c576",
+			"name": "[No Test] Add User Dicoding",
+			"url": "http://localhost:5000/users",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "21a73581-ac17-4a7c-bd73-d3873dd2c030",
+			"name": "[No Test] Add User Johndoe",
+			"url": "http://localhost:5000/users",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				2
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6c821d46-d9a3-40c7-84be-570617d5bec8",
+			"name": "[No Test] Login User Dicoding",
+			"url": "http://localhost:5000/authentications",
+			"time": 58,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				58
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8159bdf0-3d1a-4699-a42d-396f4f45eb25",
+			"name": "[No Test] Login User Johndoe",
+			"url": "http://localhost:5000/authentications",
+			"time": 59,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				59
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c11f1270-5360-4efc-aee2-871e0527c375",
+			"name": "[No Test] Add Thread with User Dicoding",
+			"url": "http://localhost:5000/threads",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "affde70f-ed4a-459f-8217-519f0da942cc",
+			"name": "[No Test] Add Comment with User Dicoding",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments",
+			"time": 4,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "99d78e4f-3d55-464a-9b22-893c0732a57f",
+			"name": "[No Test] Add Another Comment with User Dicoding",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8a0d20e5-5bb7-4f90-b8b0-afeb989864f9",
+			"name": "[Optional] Add Reply to Dicoding Comment with No Authentication",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments/comment-eA9dkczg4W6PxWnRwqA7I/replies",
+			"time": 2,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"should response 401 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 401 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"should response 401 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "bcbad228-aaa1-4d0c-bd33-0a3721f48728",
+			"name": "[Optional] Add Reply to Dicoding Comment with Invalid Thread",
+			"url": "http://localhost:5000/threads/xxxx/comments/comment-eA9dkczg4W6PxWnRwqA7I/replies",
+			"time": 4,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"should response with 404 status code": true,
+				"should fail status and message": true
+			},
+			"testPassFailCounts": {
+				"should response with 404 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should fail status and message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response with 404 status code": true,
+					"should fail status and message": true
+				}
+			]
+		},
+		{
+			"id": "a625486e-3b7b-454a-a452-fe90fbf119d6",
+			"name": "[Optional] Add Reply to Invalid Comment",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments/xxx/replies",
+			"time": 4,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"should response with 404 status code": true,
+				"should fail status and message": true
+			},
+			"testPassFailCounts": {
+				"should response with 404 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should fail status and message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response with 404 status code": true,
+					"should fail status and message": true
+				}
+			]
+		},
+		{
+			"id": "9611bd14-ffad-4ab7-836e-eccadf0fd8cc",
+			"name": "[Optional] Add Reply to Dicoding Comment with Bad Payload",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments/comment-eA9dkczg4W6PxWnRwqA7I/replies",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response should have 400 status code": true,
+				"response should have correct property and value": true
+			},
+			"testPassFailCounts": {
+				"response should have 400 status code": {
+					"pass": 2,
+					"fail": 0
+				},
+				"response should have correct property and value": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				3
+			],
+			"allTests": [
+				{
+					"response should have 400 status code": true,
+					"response should have correct property and value": true
+				},
+				{
+					"response should have 400 status code": true,
+					"response should have correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "9996e5db-cd0f-49f2-9e95-9ec0720c1997",
+			"name": "[Optional] Add Reply to Dicoding Comment using Johndoe",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments/comment-eA9dkczg4W6PxWnRwqA7I/replies",
+			"time": 4,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"should response with 201 status code": true,
+				"should contain correct property and value": true
+			},
+			"testPassFailCounts": {
+				"should response with 201 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should contain correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response with 201 status code": true,
+					"should contain correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "fd262779-3b85-47c4-b937-1903e5c6766d",
+			"name": "[Optional] Add Reply to Dicoding Comment using Dicoding",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments/comment-eA9dkczg4W6PxWnRwqA7I/replies",
+			"time": 4,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"should response with 201 status code": true,
+				"should contain correct property and value": true
+			},
+			"testPassFailCounts": {
+				"should response with 201 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should contain correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response with 201 status code": true,
+					"should contain correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "0ed36a78-4a23-4832-89dd-8e541362d502",
+			"name": "[Optional] Get Replied Thread",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"should response with status code 200": true,
+				"should contain correct property and value": true
+			},
+			"testPassFailCounts": {
+				"should response with status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should contain correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"should response with status code 200": true,
+					"should contain correct property and value": true
+				}
+			]
+		},
+		{
+			"id": "1905f152-d8ce-4428-b50d-644225233668",
+			"name": "[Optional] Delete Not Found Reply",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments/comment-eA9dkczg4W6PxWnRwqA7I/replies/xxx",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"should response 404 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 404 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"should response 404 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "7c99c952-14f7-44fb-9e82-8aeb7efc93db",
+			"name": "[Optional] Delete Johndoe Reply using Dicoding",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments/comment-eA9dkczg4W6PxWnRwqA7I/replies/reply-7lpjEFKtKYg6ZLNdyhn93",
+			"time": 3,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"should response 403 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 403 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"should response 403 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "ae622a80-aa6f-41c7-badb-23c6854e2058",
+			"name": "[Optional] Delete Johndoe Reply using Johndoe",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x/comments/comment-eA9dkczg4W6PxWnRwqA7I/replies/reply-7lpjEFKtKYg6ZLNdyhn93",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"should response 200 status code": true,
+				"should show Missing Authentication message": true
+			},
+			"testPassFailCounts": {
+				"should response 200 status code": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should show Missing Authentication message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response 200 status code": true,
+					"should show Missing Authentication message": true
+				}
+			]
+		},
+		{
+			"id": "a7fc7619-e32f-4832-84bf-e8a863bacfa8",
+			"name": "[Optional] Get Replied Thread After Johndoe Reply Deleted",
+			"url": "http://localhost:5000/threads/thread-APhsKR5G_iOL-A-fwh51x",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"should response with status code 200": true,
+				"should contain correct property and value": true
+			},
+			"testPassFailCounts": {
+				"should response with status code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"should contain correct property and value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"should response with status code 200": true,
+					"should contain correct property and value": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 736,
+	"collection": {
+		"requests": [
+			{
+				"id": "e243a24d-5d8b-469e-a223-c03201c265be",
+				"method": "POST"
+			},
+			{
+				"id": "eb540b69-1a82-44e0-9d53-c4cde55e41c2",
+				"method": "POST"
+			},
+			{
+				"id": "eb540b69-1a82-44e0-9d53-c4cde55e41c2",
+				"method": "POST"
+			},
+			{
+				"id": "eb540b69-1a82-44e0-9d53-c4cde55e41c2",
+				"method": "POST"
+			},
+			{
+				"id": "eb540b69-1a82-44e0-9d53-c4cde55e41c2",
+				"method": "POST"
+			},
+			{
+				"id": "eb540b69-1a82-44e0-9d53-c4cde55e41c2",
+				"method": "POST"
+			},
+			{
+				"id": "eb540b69-1a82-44e0-9d53-c4cde55e41c2",
+				"method": "POST"
+			},
+			{
+				"id": "eb540b69-1a82-44e0-9d53-c4cde55e41c2",
+				"method": "POST"
+			},
+			{
+				"id": "0cab67d0-3cf5-4387-abc5-3228b4ad91d7",
+				"method": "POST"
+			},
+			{
+				"id": "3d567f81-6422-486b-9d46-d1c63e682d2f",
+				"method": "POST"
+			},
+			{
+				"id": "a4d57065-e354-4ead-b82f-f98f37c88a39",
+				"method": "POST"
+			},
+			{
+				"id": "48ed89c0-adc9-44a7-9eb6-3ad8d003f7ab",
+				"method": "POST"
+			},
+			{
+				"id": "5eaf77df-f37e-4b8f-aa36-cac423a135d9",
+				"method": "POST"
+			},
+			{
+				"id": "80cd9f82-afaf-4a53-8940-d66c4a0a86f3",
+				"method": "POST"
+			},
+			{
+				"id": "55f20e83-9ce0-4e8f-9d6d-a799863ef91d",
+				"method": "PUT"
+			},
+			{
+				"id": "7d8c22fd-2ffa-4b2a-bda6-45f57198b2f6",
+				"method": "PUT"
+			},
+			{
+				"id": "b5481da3-f789-4b6f-9725-bd42942189ad",
+				"method": "DELETE"
+			},
+			{
+				"id": "4477caa8-79e8-4097-9af2-f216d6ee4e24",
+				"method": "DELETE"
+			},
+			{
+				"id": "07da6c20-8142-402a-ab48-c310b42f4230",
+				"method": "POST"
+			},
+			{
+				"id": "8b900794-a4d8-4a65-ae4e-be7936c6b226",
+				"method": "POST"
+			},
+			{
+				"id": "359c724f-a3eb-4669-b8da-85c837879916",
+				"method": "POST"
+			},
+			{
+				"id": "624edbab-fc27-4a49-b154-359b2007bc5d",
+				"method": "POST"
+			},
+			{
+				"id": "624edbab-fc27-4a49-b154-359b2007bc5d",
+				"method": "POST"
+			},
+			{
+				"id": "624edbab-fc27-4a49-b154-359b2007bc5d",
+				"method": "POST"
+			},
+			{
+				"id": "624edbab-fc27-4a49-b154-359b2007bc5d",
+				"method": "POST"
+			},
+			{
+				"id": "624edbab-fc27-4a49-b154-359b2007bc5d",
+				"method": "POST"
+			},
+			{
+				"id": "20340f27-bb88-49f1-9db5-7001abbf4a2a",
+				"method": "POST"
+			},
+			{
+				"id": "40eedf80-5af5-4a3c-8ba7-4b391d1747f0",
+				"method": "POST"
+			},
+			{
+				"id": "4dee3c16-0376-4eb6-ab0a-2f45899a8853",
+				"method": "POST"
+			},
+			{
+				"id": "20618954-51fc-4740-8b19-d74f7c30fef4",
+				"method": "POST"
+			},
+			{
+				"id": "9a2aec6c-693e-4e8b-b077-271427d6f1f1",
+				"method": "POST"
+			},
+			{
+				"id": "db8a2041-9e31-45c5-b589-74e88a3e9e93",
+				"method": "POST"
+			},
+			{
+				"id": "270e4e46-30a9-4fef-8f1c-230080d95fc8",
+				"method": "POST"
+			},
+			{
+				"id": "126cf106-bac3-423e-a5bb-8649b5b17967",
+				"method": "POST"
+			},
+			{
+				"id": "11e8b0e8-3fc4-4f7a-8fef-56af9bea63e7",
+				"method": "POST"
+			},
+			{
+				"id": "11e8b0e8-3fc4-4f7a-8fef-56af9bea63e7",
+				"method": "POST"
+			},
+			{
+				"id": "9802bfb5-fd31-474f-a87b-485cbf29a996",
+				"method": "POST"
+			},
+			{
+				"id": "fdb3e405-e8de-42ee-a4d6-03b2a873b3db",
+				"method": "POST"
+			},
+			{
+				"id": "eac4acfe-c22a-4266-a444-496d9549b8dc",
+				"method": "GET"
+			},
+			{
+				"id": "f29cbc8f-a08b-4669-b26b-bc8b1ac621af",
+				"method": "DELETE"
+			},
+			{
+				"id": "7d5d2385-3a66-4013-ab8f-c88bc27c2a3e",
+				"method": "DELETE"
+			},
+			{
+				"id": "c9f751ce-2bc5-488d-a20a-e047473ce191",
+				"method": "DELETE"
+			},
+			{
+				"id": "f5f0b0ac-7b1e-4aa4-a702-c5966a877045",
+				"method": "DELETE"
+			},
+			{
+				"id": "290f3c1a-8c99-4ca8-a0f9-af35f3220aa8",
+				"method": "GET"
+			},
+			{
+				"id": "b48e4d7c-17bb-4ac3-a981-8351fa86c576",
+				"method": "POST"
+			},
+			{
+				"id": "21a73581-ac17-4a7c-bd73-d3873dd2c030",
+				"method": "POST"
+			},
+			{
+				"id": "6c821d46-d9a3-40c7-84be-570617d5bec8",
+				"method": "POST"
+			},
+			{
+				"id": "8159bdf0-3d1a-4699-a42d-396f4f45eb25",
+				"method": "POST"
+			},
+			{
+				"id": "c11f1270-5360-4efc-aee2-871e0527c375",
+				"method": "POST"
+			},
+			{
+				"id": "affde70f-ed4a-459f-8217-519f0da942cc",
+				"method": "POST"
+			},
+			{
+				"id": "99d78e4f-3d55-464a-9b22-893c0732a57f",
+				"method": "POST"
+			},
+			{
+				"id": "8a0d20e5-5bb7-4f90-b8b0-afeb989864f9",
+				"method": "POST"
+			},
+			{
+				"id": "bcbad228-aaa1-4d0c-bd33-0a3721f48728",
+				"method": "POST"
+			},
+			{
+				"id": "a625486e-3b7b-454a-a452-fe90fbf119d6",
+				"method": "POST"
+			},
+			{
+				"id": "9611bd14-ffad-4ab7-836e-eccadf0fd8cc",
+				"method": "POST"
+			},
+			{
+				"id": "9611bd14-ffad-4ab7-836e-eccadf0fd8cc",
+				"method": "POST"
+			},
+			{
+				"id": "9996e5db-cd0f-49f2-9e95-9ec0720c1997",
+				"method": "POST"
+			},
+			{
+				"id": "fd262779-3b85-47c4-b937-1903e5c6766d",
+				"method": "POST"
+			},
+			{
+				"id": "0ed36a78-4a23-4832-89dd-8e541362d502",
+				"method": "GET"
+			},
+			{
+				"id": "1905f152-d8ce-4428-b50d-644225233668",
+				"method": "DELETE"
+			},
+			{
+				"id": "7c99c952-14f7-44fb-9e82-8aeb7efc93db",
+				"method": "DELETE"
+			},
+			{
+				"id": "ae622a80-aa6f-41c7-badb-23c6854e2058",
+				"method": "DELETE"
+			},
+			{
+				"id": "a7fc7619-e32f-4832-84bf-e8a863bacfa8",
+				"method": "GET"
+			}
+		]
+	}
+}
