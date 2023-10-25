@@ -107,5 +107,6 @@ describe('showThreadUseCase', () => {
     expect(showThread).toStrictEqual(expectedShownThread);
     expect(mockThreadRepository.getThreadById).toBeCalledWith(useCasePayload);
     expect(mockCommentRepository.getCommentsByThreadId).toBeCalledWith(useCasePayload);
+    expect(mockReplyRepository.getRepliesByThreadId).toBeCalledWith(useCasePayload);
   });
 });
