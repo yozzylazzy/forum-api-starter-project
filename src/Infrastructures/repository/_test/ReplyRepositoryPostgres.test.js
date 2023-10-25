@@ -98,8 +98,7 @@ describe('ReplyRepositoryPostgres', () => {
       const replyRepositoryPostgres = new ReplyRepositoryPostgres(pool, {});
       // Action & Assert
       return expect(replyRepositoryPostgres.verifyReplyExist('hello-world'))
-        .rejects
-        .toThrowError(NotFoundError);
+        .rejects.toThrowError(NotFoundError);
     });
 
     it('should not throw NotFoundError when reply found', async () => {
