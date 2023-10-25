@@ -18,14 +18,14 @@ describe('showThreadUseCase', () => {
       {
         id: 'comment-123',
         username: 'user-123',
-        date: '2021-08-08T07:26:17.018Z',
+        date: '2023-10-24T22:54:05Z',
         content: 'Thread Comment',
         is_delete: false,
       },
       {
         id: 'comment-456',
         username: 'user-123',
-        date: '2021-08-08T07:26:17.018Z',
+        date: '2023-10-24T22:54:05Z',
         content: 'Thread Comment',
         is_delete: true,
       },
@@ -34,7 +34,7 @@ describe('showThreadUseCase', () => {
       {
         id: 'reply-123',
         content: 'reply Content',
-        date: '2021-08-08T07:26:17.018Z',
+        date: '2023-10-24T22:54:05Z',
         username: 'user-123',
         is_delete: false,
         comment_id: 'comment-123',
@@ -42,7 +42,7 @@ describe('showThreadUseCase', () => {
       {
         id: 'reply-456',
         content: 'reply Content 2',
-        date: '2021-08-08T07:26:17.018Z',
+        date: '2023-10-24T22:54:05Z',
         username: 'user-123',
         is_delete: true,
         comment_id: 'comment-123',
@@ -58,18 +58,18 @@ describe('showThreadUseCase', () => {
         {
           id: 'comment-123',
           username: 'user-123',
-          date: '2021-08-08T07:26:17.018Z',
+          date: '2023-10-24T22:54:05Z',
           replies: [
             {
               id: 'reply-123',
               content: 'reply Content',
-              date: '2021-08-08T07:26:17.018Z',
+              date: '2023-10-24T22:54:05Z',
               username: 'user-123',
             },
             {
               id: 'reply-456',
               content: '**balasan telah dihapus**',
-              date: '2021-08-08T07:26:17.018Z',
+              date: '2023-10-24T22:54:05Z',
               username: 'user-123',
             },
           ],
@@ -78,7 +78,7 @@ describe('showThreadUseCase', () => {
         {
           id: 'comment-456',
           username: 'user-123',
-          date: '2021-08-08T07:26:17.018Z',
+          date: '2023-10-24T22:54:05Z',
           replies: [],
           content: '**komentar telah dihapus**',
         },
