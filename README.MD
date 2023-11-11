@@ -1,4 +1,4 @@
-# PROYEK SATU DICODING EXPERT BACKEND BY YOSEF ADRIAN
+# PROYEK DUA DICODING EXPERT BACKEND BY YOSEF ADRIAN
 # Installation Dependencies
 
 - npm install @hapi/hapi @hapi/jwt bcrypt dotenv nanoid@3.x.x pg
