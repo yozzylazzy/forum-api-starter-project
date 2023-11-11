@@ -5,3 +5,6 @@ config/database/test.json
 coverage
 .env
 .env.ec2
+nginx.txt
+STEP_PENGERJAAN_YOSEF.txt
+forum-api-app-server.pem
