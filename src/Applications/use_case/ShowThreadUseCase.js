@@ -1,10 +1,11 @@
 class ShowThreadUseCase {
   constructor({
-    threadRepository, commentRepository, replyRepository,
+    threadRepository, commentRepository, replyRepository, likeRepository,
   }) {
     this._threadRepository = threadRepository;
     this._commentRepository = commentRepository;
     this._replyRepository = replyRepository;
+    this._likeRepository = likeRepository;
   }
 
   async execute(useCasePayload) {
@@ -27,8 +28,11 @@ class ShowThreadUseCase {
       delete reply.is_delete;
       return reply;
     });
+
     const commentsWithReplies = this._addReplyToComment(cleanedComments, cleanedReplies);
-    return {
+    for (const comment of commentsWithReplies) {
+      comment.likeCount = await this._likeRepository.getLikesCountByCommentId(comment.id);
+    } return {
       ...thread,
       comments: commentsWithReplies,
     };
