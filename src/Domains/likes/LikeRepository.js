@@ -3,11 +3,11 @@ class LikeRepository {
     throw new Error('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
-  async verifyIsLiked(likeId) {
+  async verifyIsLiked(commentId, userId) {
     throw new Error('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
-  async cancelLike(likeId) {
+  async cancelLike(commentId, userId) {
     throw new Error('LIKE_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 

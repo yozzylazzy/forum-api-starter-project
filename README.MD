@@ -30,84 +30,95 @@ Starter Project Forum API sudah mencakup fitur:
 
 - npm run start:dev
 
-File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
-------------------|---------|----------|---------|---------|-------------------
-All files         |     100 |      100 |     100 |     100 |                   
- ...ions/security |     100 |      100 |     100 |     100 |                   
-  ...enManager.js |     100 |      100 |     100 |     100 |                   
-  PasswordHash.js |     100 |      100 |     100 |     100 |                   
- ...ions/use_case |     100 |      100 |     100 |     100 |                   
-  ...ntUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...lyUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...adUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...erUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...onUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...ntUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...lyUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...erUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...erUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...onUseCase.js |     100 |      100 |     100 |     100 |                   
-  ...adUseCase.js |     100 |      100 |     100 |     100 |                   
- ...ns/exceptions |     100 |      100 |     100 |     100 |                   
-  ...tionError.js |     100 |      100 |     100 |     100 |                   
-  ...tionError.js |     100 |      100 |     100 |     100 |                   
-  ClientError.js  |     100 |      100 |     100 |     100 |                   
-  ...ranslator.js |     100 |      100 |     100 |     100 |                   
-  ...iantError.js |     100 |      100 |     100 |     100 |                   
-  ...oundError.js |     100 |      100 |     100 |     100 |                   
- ...thentications |     100 |      100 |     100 |     100 |                   
-  ...epository.js |     100 |      100 |     100 |     100 |                   
- ...ions/entities |     100 |      100 |     100 |     100 |                   
-  NewAuth.js      |     100 |      100 |     100 |     100 |                   
- Domains/comments |     100 |      100 |     100 |     100 |                   
-  ...epository.js |     100 |      100 |     100 |     100 |                   
- ...ents/entities |     100 |      100 |     100 |     100 |                   
-  ...teComment.js |     100 |      100 |     100 |     100 |                   
-  ...edComment.js |     100 |      100 |     100 |     100 |                   
- Domains/replies  |     100 |      100 |     100 |     100 |                   
-  ...epository.js |     100 |      100 |     100 |     100 |                   
- ...lies/entities |     100 |      100 |     100 |     100 |                   
-  CreateReply.js  |     100 |      100 |     100 |     100 |                   
-  CreatedReply.js |     100 |      100 |     100 |     100 |                   
- Domains/threads  |     100 |      100 |     100 |     100 |                   
-  ...epository.js |     100 |      100 |     100 |     100 |                   
- ...eads/entities |     100 |      100 |     100 |     100 |                   
-  CreateThread.js |     100 |      100 |     100 |     100 |                   
-  ...tedThread.js |     100 |      100 |     100 |     100 |                   
- Domains/users    |     100 |      100 |     100 |     100 |                   
-  ...epository.js |     100 |      100 |     100 |     100 |                   
- ...sers/entities |     100 |      100 |     100 |     100 |                   
-  RegisterUser.js |     100 |      100 |     100 |     100 |                   
-  ...teredUser.js |     100 |      100 |     100 |     100 |                   
-  UserLogin.js    |     100 |      100 |     100 |     100 |                   
- ...ructures/http |     100 |      100 |     100 |     100 |                   
-  createServer.js |     100 |      100 |     100 |     100 |                   
- ...es/repository |     100 |      100 |     100 |     100 |                   
-  ...yPostgres.js |     100 |      100 |     100 |     100 |                   
-  ...yPostgres.js |     100 |      100 |     100 |     100 |                   
-  ...yPostgres.js |     100 |      100 |     100 |     100 |                   
-  ...yPostgres.js |     100 |      100 |     100 |     100 |                   
-  ...yPostgres.js |     100 |      100 |     100 |     100 |                   
- ...ures/security |     100 |      100 |     100 |     100 |                   
-  ...swordHash.js |     100 |      100 |     100 |     100 |                   
-  ...enManager.js |     100 |      100 |     100 |     100 |                   
- ...thentications |     100 |      100 |     100 |     100 |                   
-  handler.js      |     100 |      100 |     100 |     100 |                   
-  index.js        |     100 |      100 |     100 |     100 |                   
-  routes.js       |     100 |      100 |     100 |     100 |                   
- .../api/comments |     100 |      100 |     100 |     100 |                   
-  handler.js      |     100 |      100 |     100 |     100 |                   
-  index.js        |     100 |      100 |     100 |     100 |                   
-  routes.js       |     100 |      100 |     100 |     100 |                   
- ...p/api/replies |     100 |      100 |     100 |     100 |                   
-  handler.js      |     100 |      100 |     100 |     100 |                   
-  index.js        |     100 |      100 |     100 |     100 |                   
-  routes.js       |     100 |      100 |     100 |     100 |                   
- ...p/api/threads |     100 |      100 |     100 |     100 |                   
-  handler.js      |     100 |      100 |     100 |     100 |                   
-  index.js        |     100 |      100 |     100 |     100 |                   
-  routes.js       |     100 |      100 |     100 |     100 |                   
- ...ttp/api/users |     100 |      100 |     100 |     100 |                   
-  handler.js      |     100 |      100 |     100 |     100 |                   
-  index.js        |     100 |      100 |     100 |     100 |                   
-  routes.js       |     100 |      100 |     100 |     100 |    
+--------------------------------------|---------|----------|---------|---------|-------------------                                                                                 
+File                                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                                                  
+--------------------------------------|---------|----------|---------|---------|-------------------
+All files                             |     100 |      100 |     100 |     100 | 
+ Applications/security                |     100 |      100 |     100 |     100 | 
+  AuthenticationTokenManager.js       |     100 |      100 |     100 |     100 | 
+  PasswordHash.js                     |     100 |      100 |     100 |     100 | 
+ Applications/use_case                |     100 |      100 |     100 |     100 | 
+  AddCancelLikeUseCase.js             |     100 |      100 |     100 |     100 | 
+  AddCommentUseCase.js                |     100 |      100 |     100 |     100 |                   
+  AddReplyUseCase.js                  |     100 |      100 |     100 |     100 | 
+  AddThreadUseCase.js                 |     100 |      100 |     100 |     100 | 
+  AddUserUseCase.js                   |     100 |      100 |     100 |     100 | 
+  DeleteAuthenticationUseCase.js      |     100 |      100 |     100 |     100 | 
+  DeleteCommentUseCase.js             |     100 |      100 |     100 |     100 | 
+  DeleteReplyUseCase.js               |     100 |      100 |     100 |     100 | 
+  LoginUserUseCase.js                 |     100 |      100 |     100 |     100 | 
+  LogoutUserUseCase.js                |     100 |      100 |     100 |     100 | 
+  RefreshAuthenticationUseCase.js     |     100 |      100 |     100 |     100 | 
+  ShowThreadUseCase.js                |     100 |      100 |     100 |     100 | 
+ Commons/exceptions                   |     100 |      100 |     100 |     100 | 
+  AuthenticationError.js              |     100 |      100 |     100 |     100 | 
+  AuthorizationError.js               |     100 |      100 |     100 |     100 | 
+  ClientError.js                      |     100 |      100 |     100 |     100 | 
+  DomainErrorTranslator.js            |     100 |      100 |     100 |     100 | 
+  InvariantError.js                   |     100 |      100 |     100 |     100 | 
+  NotFoundError.js                    |     100 |      100 |     100 |     100 | 
+ Domains/authentications              |     100 |      100 |     100 |     100 | 
+  AuthenticationRepository.js         |     100 |      100 |     100 |     100 | 
+ Domains/authentications/entities     |     100 |      100 |     100 |     100 | 
+  NewAuth.js                          |     100 |      100 |     100 |     100 | 
+ Domains/comments                     |     100 |      100 |     100 |     100 | 
+  CommentRepository.js                |     100 |      100 |     100 |     100 | 
+ Domains/comments/entities            |     100 |      100 |     100 |     100 | 
+  CreateComment.js                    |     100 |      100 |     100 |     100 | 
+  CreatedComment.js                   |     100 |      100 |     100 |     100 | 
+ Domains/likes                        |     100 |      100 |     100 |     100 | 
+  LikeRepository.js                   |     100 |      100 |     100 |     100 | 
+ Domains/likes/entities               |     100 |      100 |     100 |     100 | 
+  CreateLike.js                       |     100 |      100 |     100 |     100 | 
+  CreatedLike.js                      |     100 |      100 |     100 |     100 | 
+ Domains/replies                      |     100 |      100 |     100 |     100 | 
+  ReplyRepository.js                  |     100 |      100 |     100 |     100 | 
+ Domains/replies/entities             |     100 |      100 |     100 |     100 | 
+  CreateReply.js                      |     100 |      100 |     100 |     100 | 
+  CreatedReply.js                     |     100 |      100 |     100 |     100 | 
+ Domains/threads                      |     100 |      100 |     100 |     100 | 
+  ThreadRepository.js                 |     100 |      100 |     100 |     100 | 
+ Domains/threads/entities             |     100 |      100 |     100 |     100 | 
+  CreateThread.js                     |     100 |      100 |     100 |     100 | 
+  CreatedThread.js                    |     100 |      100 |     100 |     100 | 
+ Domains/users                        |     100 |      100 |     100 |     100 | 
+  UserRepository.js                   |     100 |      100 |     100 |     100 | 
+ Domains/users/entities               |     100 |      100 |     100 |     100 | 
+  RegisterUser.js                     |     100 |      100 |     100 |     100 | 
+  RegisteredUser.js                   |     100 |      100 |     100 |     100 | 
+  UserLogin.js                        |     100 |      100 |     100 |     100 | 
+ Infrastructures/http                 |     100 |      100 |     100 |     100 | 
+  createServer.js                     |     100 |      100 |     100 |     100 | 
+ Infrastructures/repository           |     100 |      100 |     100 |     100 | 
+  AuthenticationRepositoryPostgres.js |     100 |      100 |     100 |     100 | 
+  CommentRepositoryPostgres.js        |     100 |      100 |     100 |     100 | 
+  LikeRepositoryPostgres.js           |     100 |      100 |     100 |     100 | 
+  ReplyRepositoryPostgres.js          |     100 |      100 |     100 |     100 | 
+  ThreadRepositoryPostgres.js         |     100 |      100 |     100 |     100 | 
+  UserRepositoryPostgres.js           |     100 |      100 |     100 |     100 | 
+ Infrastructures/security             |     100 |      100 |     100 |     100 | 
+  BcryptPasswordHash.js               |     100 |      100 |     100 |     100 | 
+  routes.js                           |     100 |      100 |     100 |     100 | 
+ Interfaces/http/api/users            |     100 |      100 |     100 |     100 | 
+  handler.js                          |     100 |      100 |     100 |     100 | 
+  index.js                            |     100 |      100 |     100 |     100 | 
+  routes.js                           |     100 |      100 |     100 |     100 | 
+--------------------------------------|---------|----------|---------|---------|-------------------
+
+## KRITERIA WAJIB :
+
+- Continous Integration -> OK!!! (Github Action, Amazon RDS for PostgreSQL)
+- Continous Delivery/Deployment -> OK!!! (Github Action, Amazon EC2 and Amazon RDS)
+- Limiter for /threads ... -> OK!!! (NGINX, limit to 90r/min just for /threads and inside of it)
+- HTTPS Certirficate -> OK!!! (Certbort NGINX, using xyz domain)
+
+## OPSIONAL KRITERIA STEP :
+
+- npm run migra
+te create "create table likes"
+- Create domain level
+- Create Application Level
+- Create Infrastructure Level (Repository > CreateServer > Container)
+- Create Interfaces
+- Create Domains for new Exceptions
+- Test Case Likes Features Finished All 100%
