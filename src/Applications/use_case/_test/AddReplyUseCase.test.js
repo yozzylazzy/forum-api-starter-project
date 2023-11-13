@@ -12,6 +12,7 @@ describe('AddReplyUseCase', () => {
       content: 'Comment Reply',
       owner: 'user-123',
       commentId: 'comment-123',
+      threadId: 'thread-123',
     };
     const mockCreatedReply = new CreatedReply({
       id: 'reply-123',
@@ -42,6 +43,10 @@ describe('AddReplyUseCase', () => {
     // Action
     const addedReply = await addReplyUseCase.execute(useCasePayload);
     // Assert
+    expect(mockThreadRepository.verifyThreadExist)
+      .toBeCalledWith(useCasePayload.threadId);
+    expect(mockCommentRepository.verifyCommentExist)
+      .toBeCalledWith(useCasePayload.commentId);
     expect(addedReply).toStrictEqual(mockCreatedReply);
     expect(mockReplyRepository.createReply).toBeCalledWith(new CreateReply({
       content: useCasePayload.content,
