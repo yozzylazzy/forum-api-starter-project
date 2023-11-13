@@ -16,7 +16,6 @@ describe('AddCancelLikeUseCase', () => {
       id: 'like-123',
       owner: 'user-123',
       commentId: 'comment-123',
-      threadId: 'thread-123',
     });
     /** creating dependency of use case */
     const mockThreadRepository = new ThreadRepository();

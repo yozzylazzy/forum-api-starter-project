@@ -22,8 +22,9 @@ exports.up = (pgm) => {
       default: false,
     },
     date: {
-      type: 'TEXT',
+      type: 'timestamp',
       notNull: true,
+      default: pgm.func('current_timestamp')
     },
   })
   pgm.addConstraint('replies', 'fk_replies.owner_users.id',

@@ -1,4 +1,4 @@
-class CreatedLike {
+class CreateLike {
   constructor(payload) {
     this._verifyPayload(payload);
     const { owner, commentId } = payload;
@@ -16,4 +16,4 @@ class CreatedLike {
   }
 }
 
-module.exports = CreatedLike;
+module.exports = CreateLike;
