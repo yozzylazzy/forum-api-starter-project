@@ -1,5 +1,5 @@
 // Domains
-const CreatedLike = require('../../Domains/likes/entities/CreateLike');
+const CreatedLike = require('../../Domains/likes/entities/CreatedLike');
 // Infrastructure
 const LikeRepository = require('../../Domains/likes/LikeRepository');
 // Error
@@ -17,11 +17,16 @@ class LikeRepositoryPostgres extends LikeRepository {
     const { owner, commentId } = newLike;
     const id = `like-${this._idGenerator()}`;
     const query = {
-      text: 'INSERT INTO likes VALUES($1,$2,$3) RETURNING id',
+      text: 'INSERT INTO likes VALUES($1,$2,$3) RETURNING *',
       values: [id, owner, commentId],
     };
     const result = await this._pool.query(query);
-    return result.rows[0];
+    const resultMapped = result.rows.map((row) => ({
+      id: row.id,
+      owner: row.owner,
+      commentId: row.comment_id,
+    }));
+    return new CreatedLike(resultMapped[0]);
   }
 
   async verifyIsLiked(commentId, userId) {

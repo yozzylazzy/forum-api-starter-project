@@ -41,7 +41,6 @@ describe('LikeRepositoryPostgres', () => {
       const fakeIdGenerator = () => '123';
       const likeRepositoryPostgres = new LikeRepositoryPostgres(pool, fakeIdGenerator);
       // Action
-      // console.log(createLike);
       const createdLike = await likeRepositoryPostgres.createLike(createLike);
       // Assert
       const likes = await LikesTableTestHelper.findLikeById(createdLike.id);
