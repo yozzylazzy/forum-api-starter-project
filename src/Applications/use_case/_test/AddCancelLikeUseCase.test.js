@@ -39,6 +39,12 @@ describe('AddCancelLikeUseCase', () => {
     // Action
     const createdLike = await getLikeUseCase.execute(useCasePayload);
     // Assert
+    expect(mockThreadRepository.verifyThreadExist)
+      .toBeCalledWith(useCasePayload.threadId);
+    expect(mockCommentRepository.verifyCommentExist)
+      .toBeCalledWith(useCasePayload.commentId);
+    expect(mockLikeRepository.verifyIsLiked)
+      .toBeCalledWith(useCasePayload.commentId, useCasePayload.owner);
     expect(createdLike).toStrictEqual(new CreatedLike({
       id: 'like-123',
       owner: useCasePayload.owner,
