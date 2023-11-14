@@ -105,14 +105,10 @@ describe('showThreadUseCase', () => {
     const mockReplyRepository = new ReplyRepository();
     const mockLikeRepository = new LikeRepository();
     /** mocking needed function */
-    mockThreadRepository.getThreadById = jest.fn()
-      .mockImplementation(() => Promise.resolve(expectedThread));
-    mockCommentRepository.getCommentsByThreadId = jest.fn()
-      .mockImplementation(() => Promise.resolve(expectedComments));
-    mockReplyRepository.getRepliesByThreadId = jest.fn()
-      .mockImplementation(() => Promise.resolve(expectedReplies));
-    mockLikeRepository.getLikesCountByCommentId = jest.fn()
-      .mockImplementation(() => Promise.resolve(1));
+    mockThreadRepository.getThreadById = jest.fn(() => Promise.resolve(expectedThread));
+    mockCommentRepository.getCommentsByThreadId = jest.fn(() => Promise.resolve(expectedComments));
+    mockReplyRepository.getRepliesByThreadId = jest.fn(() => Promise.resolve(expectedReplies));
+    mockLikeRepository.getLikesCountByCommentId = jest.fn(() => Promise.resolve(1));
     /** creating use case instance */
     const showThreadUseCase = new ShowThreadUseCase({
       threadRepository: mockThreadRepository,
