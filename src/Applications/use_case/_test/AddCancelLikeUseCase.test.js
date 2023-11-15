@@ -22,14 +22,10 @@ describe('AddCancelLikeUseCase', () => {
     const mockCommentRepository = new CommentRepository();
     const mockLikeRepository = new LikeRepository();
     /** mocking needed function */
-    mockThreadRepository.verifyThreadExist = jest.fn()
-      .mockImplementation(() => Promise.resolve());
-    mockCommentRepository.verifyCommentExist = jest.fn()
-      .mockImplementation(() => Promise.resolve());
-    mockLikeRepository.verifyIsLiked = jest.fn()
-      .mockImplementation(() => Promise.resolve(false));
-    mockLikeRepository.createLike = jest.fn()
-      .mockImplementation(() => Promise.resolve(mockCreatedLike));
+    mockThreadRepository.verifyThreadExist = jest.fn(() => Promise.resolve());
+    mockCommentRepository.verifyCommentExist = jest.fn(() => Promise.resolve());
+    mockLikeRepository.verifyIsLiked = jest.fn(() => Promise.resolve(false));
+    mockLikeRepository.createLike = jest.fn(() => Promise.resolve(mockCreatedLike));
     /** creating use case instance */
     const getLikeUseCase = new AddCancelLikeUseCase({
       threadRepository: mockThreadRepository,
@@ -69,14 +65,10 @@ describe('AddCancelLikeUseCase', () => {
     const mockCommentRepository = new CommentRepository();
     const mockLikeRepository = new LikeRepository();
     /** mocking needed function */
-    mockThreadRepository.verifyThreadExist = jest.fn()
-      .mockImplementation(() => Promise.resolve());
-    mockCommentRepository.verifyCommentExist = jest.fn()
-      .mockImplementation(() => Promise.resolve());
-    mockLikeRepository.verifyIsLiked = jest.fn()
-      .mockImplementation(() => Promise.resolve(true));
-    mockLikeRepository.cancelLike = jest.fn()
-      .mockImplementation(() => Promise.resolve());
+    mockThreadRepository.verifyThreadExist = jest.fn(() => Promise.resolve());
+    mockCommentRepository.verifyCommentExist = jest.fn(() => Promise.resolve());
+    mockLikeRepository.verifyIsLiked = jest.fn(() => Promise.resolve(true));
+    mockLikeRepository.cancelLike = jest.fn(() => Promise.resolve());
     /** creating use case instance */
     const addCancelLikeUseCase = new AddCancelLikeUseCase({
       threadRepository: mockThreadRepository,

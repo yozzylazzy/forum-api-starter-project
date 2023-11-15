@@ -24,16 +24,13 @@ describe('AddReplyUseCase', () => {
     const mockCommentRepository = new CommentRepository();
     const mockReplyRepository = new ReplyRepository();
     /** mocking needed function */
-    mockThreadRepository.verifyThreadExist = jest.fn()
-      .mockImplementation(() => Promise.resolve());
-    mockCommentRepository.verifyCommentExist = jest.fn()
-      .mockImplementation(() => Promise.resolve());
-    mockReplyRepository.createReply = jest.fn()
-      .mockImplementation(() => Promise.resolve(new CreatedReply({
-        id: 'reply-123',
-        content: useCasePayload.content,
-        owner: useCasePayload.owner,
-      })));
+    mockThreadRepository.verifyThreadExist = jest.fn(() => Promise.resolve());
+    mockCommentRepository.verifyCommentExist = jest.fn(() => Promise.resolve());
+    mockReplyRepository.createReply = jest.fn(() => Promise.resolve(new CreatedReply({
+      id: 'reply-123',
+      content: useCasePayload.content,
+      owner: useCasePayload.owner,
+    })));
     /** creating use case instance */
     const addReplyUseCase = new AddReplyUseCase({
       replyRepository: mockReplyRepository,
